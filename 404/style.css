@@ -1,0 +1,70 @@
+body {
+    background-color: rgb(7, 7, 30);
+    background-image: url("../images/bg_tex.webp");
+    background-attachment: fixed;
+    background-position: center center;
+    background-repeat: repeat;
+    min-width: 768px;
+    _width: expression( document.body.clientWidth < 768 ? "768px" : "auto" ); /* sets max-width for IE6 */
+ }
+
+hr {
+    color: seashell;
+}
+
+.orb-link {
+    color: inherit;
+    opacity: .5;
+    text-align: center;
+    vertical-align: center;
+    transform: scale(1);
+    transition: 0.33s ease-in-out;
+}
+
+.orb-link:hover {
+    color: inherit;
+    opacity: 1.0;
+}
+
+.btn-custom {
+    opacity: .66;
+    transform: scale(.95);
+    transition: 0.33s ease-in-out;
+}
+
+.btn-custom:hover {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.text-title {
+    font-weight: 700;
+}
+
+.text-subtitle {
+    font-weight: 100;
+}
+
+.min-vh-custom {
+    height: 85vh; 
+}
+
+.img-overlay {
+    background-image: url("../images/wb_question.webp");
+    background-attachment: fixed;
+    background-position: right bottom;
+    background-repeat: no-repeat;
+    height: 100vh
+}
+
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+body::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+body {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox  */
+}

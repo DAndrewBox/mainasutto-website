@@ -1,0 +1,95 @@
+body {
+    background-color: rgb(7, 7, 30);
+    background-image: url("../images/bg_alpha.webp");
+    background-attachment: fixed;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-blend-mode: lighten;
+    min-width: 768px;
+    _width: expression( document.body.clientWidth < 768 ? "768px" : "auto" ); /* sets max-width for IE6 */
+ }
+
+hr {
+    color: seashell;
+}
+
+.bg-backfilter {
+    border-color: rgba(255, 255, 255, 1);
+    backdrop-filter: blur(7px);
+}
+
+.orb-link {
+    color: inherit;
+    opacity: .5;
+    text-align: center;
+    vertical-align: center;
+    transform: scale(1);
+    transition: 0.33s ease-in-out;
+}
+
+.orb-link:hover {
+    color: inherit;
+    opacity: 1.0;
+}
+
+footer {
+    z-index: 5;
+    color: rgba(255, 255, 255, .5);
+    background-color: rgba(7, 7, 30, 0.45)
+}
+
+.btn-custom {
+    opacity: .66;
+    transform: scale(.95);
+    transition: 0.33s ease-in-out;
+}
+
+.btn-custom:hover {
+    opacity: 1;
+    transform: scale(1);
+}
+
+a {
+    color: #0275d8;
+    text-decoration: none;
+}
+
+a:hover {
+    color: rgb(204, 150, 0);
+}
+
+.text-name {
+    color: rgba(255, 255, 255, 1);
+    font-weight: 500;
+}
+
+.min-vh-custom {
+    height: 85vh; 
+}
+
+.row-select {
+    opacity: .50;
+    background-color: rgba(200, 200, 200, 0);
+    padding-top: .33em;
+    padding-bottom: .33em;
+    transition: 0.16s ease-in-out;
+}
+
+.row-select:hover {
+    opacity: 1.0;
+    background-color: rgba(204, 150, 0, .16);
+    padding-top: .66em;
+    padding-bottom: .66em;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+body::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+body {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox  */
+}
