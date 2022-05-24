@@ -189,3 +189,7 @@ footer {
     border-radius: 10px;
 	background-color: rgb(7, 7, 30);
 }
+
+.no-visible {
+    visibility: hidden;
+}

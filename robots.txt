@@ -1,0 +1,7 @@
+User-agent: *
+
+Allow: /
+Allow: /alpha/
+Allow: /beta/
+
+Sitemap: http://www.mainasutto.com/sitemap.xml
