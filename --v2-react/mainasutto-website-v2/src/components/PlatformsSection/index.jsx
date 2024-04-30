@@ -1,0 +1,1 @@
+export { PlatformsSection } from './PlatformsSection';
