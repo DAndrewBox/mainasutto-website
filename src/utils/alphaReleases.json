@@ -1,0 +1,47 @@
+[
+  {
+    "name": "I'm Not Alone",
+    "version": "v0.12",
+    "date": "2014-06-15",
+    "href": "",
+    "notes": "Initial private alpha release"
+  },
+  {
+    "name": "I'm Not Alone",
+    "version": "v0.14",
+    "date": "2014-06-16",
+    "href": ""
+  },
+  {
+    "name": "I'm Not Alone",
+    "version": "v0.15",
+    "date": "2014-06-18",
+    "href": "Only bug fixing and minor improvements."
+  },
+  {
+    "name": "I'm Not Alone",
+    "version": "v0.16",
+    "date": "2014-06-22",
+    "href": ""
+  },
+  {
+    "name": "I'm Not Alone",
+    "version": "v0.17",
+    "date": "2014-07-14",
+    "href": ""
+  },
+  {
+    "name": "I'm Not Alone",
+    "version": "v0.30",
+    "date": "unknown",
+    "href": "",
+    "notes": "First non-internal alpha release. Only 5 people had access to this version."
+  },
+  {
+    "name": "I'm Not Alone",
+    "version": "v0.80",
+    "date": "unknown",
+    "href": "",
+    "notes": "This version had the same features as v0.30, but was released to a larger group of people."
+  }
+]
