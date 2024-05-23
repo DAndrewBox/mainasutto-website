@@ -1,4 +1,5 @@
 import { ChipIcon, ChipText, ChipWrapper } from './Chip.styles';
+import LoaderImage from '@assets/images/loader.png';
 
 export const Chip = ({ type }) => {
   const chipTypes = {
@@ -12,13 +13,19 @@ export const Chip = ({ type }) => {
       text: 'Announcement',
       color: '#45C3B8',
       textColor: '#fff',
-      icon: require('../../assets/images/loader.png'),
+      icon: LoaderImage,
     },
     RELEASE: {
       text: 'Release',
       color: '#F8A555',
       textColor: '#05051e',
       icon: 'https://i.imgur.com/LdE0PE5.png',
+    },
+    VIDEO: {
+      text: 'Video',
+      color: '#800050',
+      textColor: '#fff',
+      icon: 'https://www.pngall.com/wp-content/uploads/13/Logo-Youtube-PNG-Images.png',
     },
   };
 

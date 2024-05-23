@@ -24,7 +24,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--color-bg-primary);
   overflow-x: hidden;
-  background-image: url('./assets/images/bg_tex.webp');
   background-attachment: fixed;
   background-position: center center;
   background-blend-mode: hard-light;

@@ -1,7 +1,12 @@
 import { marked } from 'marked';
-import { getDateString } from '../../utils/datetime';
-import { textSlice } from '../../utils/textManipulation';
+import { getDateString } from '@utils/datetime';
 
+/**
+ * Replaces specific strings in the given HTML with corresponding image tags.
+ *
+ * @param {string} html - The HTML content to modify.
+ * @returns {string} The modified HTML content with replaced strings.
+ */
 const addIcons = (html) => {
   const icons = {
     ':shrug:': 'https://forums.tigsource.com/Smileys/derek/shrug.gif',
@@ -26,6 +31,23 @@ const addIcons = (html) => {
   return newHtml;
 };
 
+
+/**
+ * Slices the given text to a specified length and adds ellipsis if necessary.
+ *
+ * @param {string} text - The text to be sliced.
+ * @param {number} length - The maximum length of the sliced text.
+ * @returns {string} - The sliced text with ellipsis if necessary.
+ */
+const textSlice = (text, length) => {
+  if (text.length > length) {
+    return text.slice(0, length).split(' ').slice(0, -1).join(' ') + '...';
+  }
+
+  return text;
+};
+
+
 /**
  * Retrieves and parses data for a blog post.
  *
@@ -37,11 +59,11 @@ const addIcons = (html) => {
  * @returns {Object} - The parsed blog post data.
  */
 const getPostDataParsed = async (post) => {
-  const filepath = require(`./posts/${post.filepath}`);
+  const file = require(`@posts/${post.filepath}`);
   let markdown = '';
   let preview = '';
 
-  const html = await fetch(filepath)
+  const html = await fetch(file)
     .then((response) => {
       return response.text();
     })
@@ -57,7 +79,7 @@ const getPostDataParsed = async (post) => {
   let postImage = '';
 
   try {
-    postImage = post.image.includes('http') ? post.image : require(`../../assets/images/posts/${post.image}`);
+    postImage = post.image.includes('http') ? post.image : require(`@assets/images/posts/${post.image}`).default;
   } catch (error) {
     postImage = 'https://via.placeholder.com/300x200.png?text=Image+Not+Found';
   }

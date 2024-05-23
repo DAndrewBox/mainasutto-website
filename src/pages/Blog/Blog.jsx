@@ -1,11 +1,12 @@
 import { useContext, useEffect, useState } from 'react';
-import { Footer, BlogNavbar, BlogPreview } from '../../components';
+import { BlogNavbar, BlogPreview, BlogLoader } from '~/modules';
 import { BlogContainer, BlogPostsNavigationContainer, BlogPostsNavigationButton } from './Blog.styles';
-import { BlogLoader, Loader } from '../../common';
+import { Loader, Footer } from '@common';
 import { useNavigate } from 'react-router-dom';
-import { BlogContext } from '../../redux';
+import { BlogContext } from '@store';
 import { getPostData } from './utils';
-import blogPostsIndex from './posts/index.json';
+import blogPostsIndex from '@posts/index.json';
+import { CommonPage } from '../Pages.styles';
 
 export const Blog = () => {
   const navigate = useNavigate();
@@ -17,11 +18,12 @@ export const Blog = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const [currentPostIndex, setCurrentPostIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
-  const [isLoadingPost, setIsLoadingPost] = useState(false);
+  const [isLoadingPosts, setIsLoadingPosts] = useState(false);
+  const [firstTimeLoad, setFirstTimeLoad] = useState(true);
   const [posts, setPosts] = useState([]);
 
   const onPostClick = (post) => {
-    setIsLoadingPost(true);
+    setIsLoadingPosts(true);
     context.dispatch({ type: 'SET_CURRENT_POST', payload: post });
   };
 
@@ -53,6 +55,8 @@ export const Blog = () => {
 
     setCurrentPage(actualPage);
     setCurrentPostIndex(POST_PER_PAGE * actualPage);
+    setFirstTimeLoad(false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -61,26 +65,28 @@ export const Blog = () => {
     const newURL =
       window.location.protocol + '//' + window.location.host + window.location.pathname + '?page=' + currentPage;
     window.history.pushState({ path: newURL }, '', newURL);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentPage]);
 
   useEffect(() => {
-    if (isLoadingPost) {
+    if (isLoadingPosts === true) {
       window.scrollTo({ top: 0, behavior: 'smooth' });
       setTimeout(() => {
-        setIsLoadingPost(false);
+        setIsLoadingPosts(false);
         navigate(`/blog/${context.getState().currentPost.id}`, { replace: true });
-      }, 1000 + Math.random() * 2000);
+      }, Math.random() * 1000);
     }
-  }, [isLoadingPost]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isLoadingPosts]);
 
   setTimeout(() => {
     setIsLoading(false);
   }, 2000);
 
   return (
-    <>
+    <CommonPage>
+      {(firstTimeLoad || isLoadingPosts) && <BlogLoader isLoading />}
       {isLoading && <Loader isLoading={isLoading} />}
-      {isLoadingPost && <BlogLoader isLoading={isLoadingPost} />}
 
       <BlogNavbar />
       <BlogContainer>
@@ -92,15 +98,19 @@ export const Blog = () => {
         {
           <BlogPostsNavigationContainer>
             {(posts.length > POST_PER_PAGE && currentPage < posts.length / POST_PER_PAGE - 1 && (
-              <BlogPostsNavigationButton onClick={onOlderPostsClick}>{'Older Posts >'}</BlogPostsNavigationButton>
+              <BlogPostsNavigationButton onClick={onOlderPostsClick}>
+                <span>{'Older Posts'}</span> <span>{'>'}</span>
+              </BlogPostsNavigationButton>
             )) || <div></div>}
             {posts.length > POST_PER_PAGE && currentPage > 0 && (
-              <BlogPostsNavigationButton onClick={onNewerPostsClick}>{'< Newer Posts'}</BlogPostsNavigationButton>
+              <BlogPostsNavigationButton onClick={onNewerPostsClick}>
+                <span>{'<'}</span> <span>{'Newer Posts'}</span>
+              </BlogPostsNavigationButton>
             )}
           </BlogPostsNavigationContainer>
         }
       </BlogContainer>
       <Footer />
-    </>
+    </CommonPage>
   );
 };

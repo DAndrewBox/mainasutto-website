@@ -1,48 +1,52 @@
 import { useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { BlogContext } from '../../redux/BlogProvider';
-import { BlogNavbar, BlogPost, Footer } from '../../components';
+import { BlogContext } from '@store/BlogProvider';
+import { BlogNavbar, BlogPost, BlogLoader } from '~/modules';
 import { BlogContainer, BlogPostsNavigationButton, BlogPostsNavigationContainer } from './Blog.styles';
-import blogPostsIndex from './posts/index.json';
-import { fetchPostData } from './utils';
-import { BlogLoader } from '../../common';
+import blogPostsIndex from '@posts/index.json';
+import { getPostData } from './utils';
+import { Footer } from '@common';
+import { CommonPage } from '../Pages.styles';
 
 export const BlogPostPage = () => {
+  const { postID: postId } = useParams();
   const context = useContext(BlogContext);
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(true);
-  const [postData, setPostData] = useState({});
+  const [postData, setPostData] = useState(null);
   const [previousPost, setPreviousPost] = useState(null);
   const [nextPost, setNextPost] = useState(null);
-  const { postID: postId } = useParams();
+  const [postIdChanged, setPostIdChanged] = useState(false);
 
   const handlePreviousPostClick = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0 });
     setIsLoading(true);
-    setTimeout(() => {
-      navigate(`/blog/${previousPost.date}`);
-      setPreviousPost(null);
-      setNextPost(null);
-    }, 500);
+    navigate(`/blog/${previousPost.date}`);
+    setPreviousPost(null);
+    setNextPost(null);
+    setPostIdChanged(true);
   };
 
   const handleNextPostClick = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0 });
     setIsLoading(true);
-    setTimeout(() => {
-      navigate(`/blog/${nextPost.date}`);
-      setPreviousPost(null);
-      setNextPost(null);
-    }, 500);
+    navigate(`/blog/${nextPost.date}`);
+    setPreviousPost(null);
+    setNextPost(null);
+    setPostIdChanged(true);
   };
 
-  useEffect(() => {
+  const getCurrentPostData = async () => {
     // If post data is already available in the context, set the post data.
     const post = context.getState().currentPost;
-    if (post && post.id === postId) {
+
+    if (post && post?.id === postId) {
       setPostData(post);
       return;
     }
+
+    // Sort the blog posts index by date in ascenting order.
+    blogPostsIndex.sort((post1, post2) => Number(post1.date) - Number(post2.date));
 
     // Fetch the post data if it is not available in the context.
     const postIndex = blogPostsIndex.findIndex((post) => Number(post.date) === Number(postId));
@@ -52,7 +56,7 @@ export const BlogPostPage = () => {
       return;
     }
 
-    Promise.resolve(fetchPostData(blogPostsIndex[postIndex])).then((postDataParsed) => {
+    await Promise.resolve(getPostData(blogPostsIndex[postIndex])).then((postDataParsed) => {
       context.dispatch({ type: 'SET_CURRENT_POST', payload: postDataParsed });
       setPostData(postDataParsed);
 
@@ -68,36 +72,49 @@ export const BlogPostPage = () => {
         setNextPost(blogPostsIndex[nextPostIndex]);
       }
 
-      setTimeout(() => {
-        setIsLoading(false);
-      }, 500);
+      setIsLoading(false);
     });
-  }, [postId]);
+  };
+
+  useEffect(() => {
+    getCurrentPostData();
+  }, []);
+
+  useEffect(() => {
+    if (postIdChanged) {
+      getCurrentPostData();
+      setPostIdChanged(false);
+    }
+  }, [postIdChanged]);
 
   const NavigationSection = () =>
     !isLoading && (previousPost || nextPost) ? (
       <BlogPostsNavigationContainer width={'100%'}>
         {(previousPost && (
           <BlogPostsNavigationButton onClick={handlePreviousPostClick}>
-            {`${previousPost.title} >`}
+            <span>{`${previousPost.title}`}</span>
+            <span>{'>'}</span>
           </BlogPostsNavigationButton>
         )) || <div></div>}
         {nextPost && (
-          <BlogPostsNavigationButton onClick={handleNextPostClick}>{`< ${nextPost.title}`}</BlogPostsNavigationButton>
+          <BlogPostsNavigationButton onClick={handleNextPostClick}>
+            <span>{'<'}</span>
+            <span>{`${nextPost.title}`}</span>
+          </BlogPostsNavigationButton>
         )}
       </BlogPostsNavigationContainer>
     ) : null;
 
   return (
-    <div>
+    <CommonPage>
       <BlogNavbar />
-      <BlogContainer>
-        <BlogLoader isLoading={isLoading} startActive />
-        {!isLoading && <BlogPost post={postData} />}
+      <BlogLoader isLoading={isLoading} />
 
+      <BlogContainer>
+        <BlogPost post={postData} />
         <NavigationSection />
       </BlogContainer>
       <Footer />
-    </div>
+    </CommonPage>
   );
 };

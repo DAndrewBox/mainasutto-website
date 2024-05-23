@@ -6,19 +6,19 @@ export const SectionContainer = styled.section`
   align-items: center;
   justify-content: center;
   width: 100%;
-  margin: -0.5rem 0;
+  margin: -0.5rem auto;
   padding-bottom: 1rem;
 
-  background: ${({ isOverlay }) => (isOverlay ? 'var(--color-bg-secondary)' : 'transparent')};
-  background-image: ${({ backgroundImage }) => (backgroundImage ? `url(${backgroundImage})` : 'none')};
+  background: ${({ $isOverlay }) => ($isOverlay ? 'var(--color-bg-secondary)' : 'transparent')};
+  background-image: ${({ $backgroundImage }) => ($backgroundImage ? `url(${$backgroundImage})` : 'none')};
   background-size: cover;
   background-position-y: center;
   background-attachment: fixed;
 
-  filter: drop-shadow(0px 0px 1rem rgba(0, 0, 0, 0.30));
+  filter: drop-shadow(0px 0px 1rem rgba(0, 0, 0, 0.3));
 
-  ${({ isOverlay }) =>
-    isOverlay
+  ${({ $isOverlay }) =>
+    $isOverlay
       ? `    
       z-index: 10;
       position: relative;
@@ -32,8 +32,22 @@ export const SectionContainer = styled.section`
       font-size: 3.5rem;
       text-transform: uppercase;
     }
+
+    @media screen and (max-width: 768px) {
+      & > h2 {
+        font-size: 2rem;
+        letter-spacing: 0.1rem;
+      }
+    }
   `
       : ''};
+
+  @media screen and (max-width: 768px) {
+    & > h2 {
+      margin-bottom: 1rem;
+      width: 95%;
+    }
+  }
 `;
 
 export const SectionTitle = styled.h2`
@@ -50,6 +64,12 @@ export const SectionTitle = styled.h2`
     font-weight: 600;
     letter-spacing: 0.225rem;
   }
+
+  @media screen and (max-width: 768px) {
+    width: 95%;
+    letter-spacing: 0.1rem;
+    font-size: 1.75rem;
+  }
 `;
 
 export const SectionSubtitle = styled.p`
@@ -59,4 +79,10 @@ export const SectionSubtitle = styled.p`
   text-align: center;
   margin-top: -1.5rem;
   margin-bottom: 2.25rem;
+
+  @media screen and (max-width: 768px) {
+    width: 95%;
+    font-size: 0.75rem;
+    margin-top: -.75rem;
+  }
 `;

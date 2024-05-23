@@ -6,7 +6,7 @@
   "header_nav_itemBlog": "Blog",
   "header_nav_langEn": "English",
   "header_nav_langEs": "Spanish",
-  "header_nav_langPt": "Portugues",
+  "header_nav_langJp": "Japanese",
   "header_title": "A metroidvania about <bold>TIME</bold> & <bold>DECISIONS</bold>",
   "features_feat_NonLineal_title": "Non-Lineal Exploration",
   "features_feat_NonLineal_desc": "<bold>Discover the world where time stops</bold>, and explore this cursed vast lands full of different characters! Explore each barrier of <bold>temporal corruption</bold> save your timeline, in a dreamlike, dark and corrupt world.",
@@ -40,5 +40,7 @@
   "team_thanks_more_link": "Click here to see the rest of the \"Special Thanks\" list!",
   "GameMaker_proud": "Proudly made with",
   "footer_line1": "<bold>Mainasutto</bold> is a game delveloped by <bold>DAndrëwBox</bold>",
-  "footer_line2": "It will be released soon. Don't dispair!"
+  "footer_line2": "It will be released soon. Don't dispair!",
+  "loader_text_loading": "Loading",
+  "loader_text_redirect": "Redirecting"
 }
