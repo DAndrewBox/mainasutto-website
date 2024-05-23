@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import MaichimpHeaderImage from '@assets/images/newsletter_header.png';
+import MaichimpHeaderImage from '@assets/images/newsletter_header.webp';
 import {
   MailchimpButtonContainer,
   MailchimpFormContainer,

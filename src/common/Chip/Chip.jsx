@@ -1,5 +1,5 @@
 import { ChipIcon, ChipText, ChipWrapper } from './Chip.styles';
-import LoaderImage from '@assets/images/loader.png';
+import LoaderImage from '@assets/images/loader.webp';
 
 export const Chip = ({ type }) => {
   const chipTypes = {

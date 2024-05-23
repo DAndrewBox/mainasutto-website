@@ -9,7 +9,7 @@ export const YoutubeTrailerContainer = styled.div`
   align-items: center;
   margin-bottom: .5rem;
 
-  iframe {
+  & > article {
     width: 74%;
     height: 100%;
     border: none;
@@ -20,7 +20,7 @@ export const YoutubeTrailerContainer = styled.div`
   @media screen and (max-width: 768px) {
     height: 16rem;
 
-    iframe {
+    & > article {
       width: 100%;
       height: 16rem;
       border-radius: 0;

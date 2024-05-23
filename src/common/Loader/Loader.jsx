@@ -6,7 +6,7 @@ export const Loader = ({ isLoading }) => {
   }
 
   const isMobile = window.innerWidth <= 768;
-  const squareSize = window.innerWidth / (isMobile ? 4 : 8);
+  const squareSize = window.innerWidth / (isMobile ? 4 : 5);
   const squareCountWidth = window.innerWidth / squareSize;
   const squareCountHeight = 1 + window.innerHeight / squareSize;
 
@@ -15,7 +15,9 @@ export const Loader = ({ isLoading }) => {
       {[...Array(Math.ceil(squareCountWidth * squareCountHeight))].map((_, index) => (
         <LoaderSquare
           key={`anim-${index}`}
-          $delay={Math.ceil(((index + 1) / squareCountWidth) * (isMobile ? 0.5 : 1))}
+          $delay={Math.ceil(
+            ((index + 1) / squareCountWidth) * (isMobile ? 0.5 : 1) + 0.33 * (index % squareCountWidth)
+          )}
         />
       ))}
     </LoaderWrapper>

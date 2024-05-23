@@ -1,4 +1,4 @@
-import PicGameMaker from '@assets/images/GM-logo.png';
+import PicGameMaker from '@assets/images/GM-logo.webp';
 import { Section } from '@common';
 import { useTranslation } from '@utils/i18n';
 import { GameMakerContainer, GameMakerImage, GameMakerText } from './GameMakerSection.styles';

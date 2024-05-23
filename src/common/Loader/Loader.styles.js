@@ -13,8 +13,8 @@ export const LoaderWrapper = styled.div`
 `;
 
 export const LoaderSquare = styled.div`
-  width: 12.5vw;
-  height: 12.5vw;
+  width: 20vw;
+  height: 20vw;
   background-color: var(--color-bg-primary);
   animation: 0.66s ease-in-out ${({ $delay }) => .20 + $delay * 0.16}s slide;
   animation-fill-mode: forwards;

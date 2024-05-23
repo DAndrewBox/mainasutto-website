@@ -1,7 +1,7 @@
-import Steam from '@assets/images/platform-steam.png';
-import NSwitch from '@assets/images/platform-switch.png';
-import PS from '@assets/images/platform-ps.png';
-import Xbox from '@assets/images/platform-xbox.png';
+import Steam from '@assets/images/platform-steam.webp';
+import NSwitch from '@assets/images/platform-switch.webp';
+import PS from '@assets/images/platform-ps.webp';
+import Xbox from '@assets/images/platform-xbox.webp';
 
 export const platforms = [
   {

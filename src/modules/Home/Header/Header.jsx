@@ -9,9 +9,9 @@ import {
   NavLangMenu,
   NavLangMenuItem,
 } from './Header.styles';
-import backgroundVideo from '@assets/videos/headervideo_v2.webm';
-import MainasuttoLogo from '@assets/images/logo_v2.png';
-import HeaderVideoPoster from '@assets/images/headervideo_v2.png';
+import backgroundVideo from '@assets/videos/headervideo_v2_360p.webm';
+import MainasuttoLogo from '@assets/images/logo_v2.webp';
+import HeaderVideoPoster from '@assets/images/headervideo_v2.webp';
 import { HeaderIcon } from './HeaderIcon';
 import { Discord, Steam, Twitter, Youtube, CaretDown, CaretRight } from '@common/Icons';
 import { useTranslation } from '@utils/i18n';

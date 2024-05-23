@@ -1,4 +1,5 @@
-import LoadingImage from '@assets/images/loader.png';
+import LoadingImage from '@assets/images/loader.webp';
+
 import {
   BlogLoaderContainer,
   BlogLoaderContentContainer,

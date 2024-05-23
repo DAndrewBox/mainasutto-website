@@ -20,8 +20,8 @@ import {
   TeamThanksSubtitle,
   TeamThanksTitle,
 } from './TeamSection.styles';
-import PicErik from '@assets/images/team/team_erik.jpg';
-import PicDrew from '@assets/images/team/team_drew.png';
+import PicErik from '@assets/images/team/team_erik.webp';
+import PicDrew from '@assets/images/team/team_drew.webp';
 import { Trans } from 'react-i18next';
 import { specialThanks } from './utils';
 

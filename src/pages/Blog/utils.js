@@ -79,7 +79,7 @@ const getPostDataParsed = async (post) => {
   let postImage = '';
 
   try {
-    postImage = post.image.includes('http') ? post.image : require(`@assets/images/posts/${post.image}`).default;
+    postImage = post.image.includes('http') ? post.image : require(`@posts/images/${post.image}`).default;
   } catch (error) {
     postImage = 'https://via.placeholder.com/300x200.png?text=Image+Not+Found';
   }
