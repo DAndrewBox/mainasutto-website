@@ -48,6 +48,14 @@ const router = createBrowserRouter([
     path: '/devlog',
     element: <Redirect to={'/blog'} />,
   },
+  {
+    path: '/presskit',
+    element: <Redirect to={'https://www.indiedb.com/games/mainasutto-im-not-alone/presskit'} />,
+  },
+  {
+    path: '/assets',
+    element: <Redirect to={'/'} />,
+  }
 ]);
 
 export default router;
