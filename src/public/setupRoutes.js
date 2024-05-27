@@ -1,12 +1,12 @@
 import { createBrowserRouter } from 'react-router-dom';
-import { Alpha, Beta, Blog, BlogPostPage, Home, Redirect, Released } from '../pages/';
+import { Alpha, Beta, Blog, BlogPostPage, Home, NotFound, Redirect, Released } from '../pages/';
 
 const router = createBrowserRouter([
   {
     path: '/',
     exact: true,
     element: <Home />,
-    errorElement: <Redirect to={'/'} />,
+    errorElement: (<NotFound />),
   },
   {
     path: '/alpha',
@@ -52,10 +52,6 @@ const router = createBrowserRouter([
     path: '/presskit',
     element: <Redirect to={'https://www.indiedb.com/games/mainasutto-im-not-alone/presskit'} />,
   },
-  {
-    path: '/assets',
-    element: <Redirect to={'/'} />,
-  }
 ]);
 
 export default router;

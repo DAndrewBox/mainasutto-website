@@ -5,10 +5,15 @@
  *
  * @param {string} to - The URL to redirect to.
  */
-export const redirectTo = (to) => {
+export const redirectTo = (to, newWindow = true) => {
   const baseUrl = window.location.origin;
 
   if (to.includes('http')) {
+    if (newWindow) {
+      window.open(to, '_blank');
+      return;
+    }
+
     window.location.href = to;
     return;
   }
