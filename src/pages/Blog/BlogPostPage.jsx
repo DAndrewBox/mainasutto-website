@@ -3,7 +3,6 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { BlogContext } from '@store/BlogProvider';
 import { BlogNavbar, BlogPost, BlogLoader } from '~/modules';
 import { BlogContainer, BlogPostsNavigationButton, BlogPostsNavigationContainer } from './Blog.styles';
-import blogPostsIndex from '@posts/index.json';
 import { getPostData } from './utils';
 import { Footer } from '@common';
 import { CommonPage } from '../Pages.styles';
@@ -21,7 +20,7 @@ export const BlogPostPage = () => {
   const handlePreviousPostClick = () => {
     window.scrollTo({ top: 0 });
     setIsLoading(true);
-    navigate(`/blog/${previousPost.date}`);
+    navigate(`/blog/${previousPost.id}`);
     setPreviousPost(null);
     setNextPost(null);
     setPostIdChanged(true);
@@ -30,53 +29,38 @@ export const BlogPostPage = () => {
   const handleNextPostClick = () => {
     window.scrollTo({ top: 0 });
     setIsLoading(true);
-    navigate(`/blog/${nextPost.date}`);
+    navigate(`/blog/${nextPost.id}`);
     setPreviousPost(null);
     setNextPost(null);
     setPostIdChanged(true);
   };
 
   const getCurrentPostData = async () => {
+    setIsLoading(true);
     // If post data is already available in the context, set the post data.
     const post = context.getState().currentPost;
-
     if (post && post?.id === postId) {
       setPostData(post);
       return;
     }
 
-    // Sort the blog posts index by date in ascenting order.
-    blogPostsIndex.sort((post1, post2) => Number(post1.date) - Number(post2.date));
-
-    // Fetch the post data if it is not available in the context.
-    const postIndex = blogPostsIndex.findIndex((post) => Number(post.date) === Number(postId));
-    if (postIndex < 0) {
+    // Fetch the blog posts index from the context.
+    try {
+      const postRes = await getPostData(postId);
+      context.dispatch({ type: 'SET_CURRENT_POST', payload: postRes.post });
+      setPostData(postRes.post);
+      setPreviousPost(postRes.previousPost);
+      setNextPost(postRes.nextPost);
+    } catch (error) {
       setPostData({ title: 'Not Found', html: '<p>The post you are looking for does not exist.</p>' });
+      console.error('Error fetching post data', error);
+    } finally {
       setIsLoading(false);
-      return;
     }
-
-    await Promise.resolve(getPostData(blogPostsIndex[postIndex])).then((postDataParsed) => {
-      context.dispatch({ type: 'SET_CURRENT_POST', payload: postDataParsed });
-      setPostData(postDataParsed);
-
-      // Set the previous and next post data.
-      const previousPostIndex = postIndex - 1;
-      const nextPostIndex = postIndex + 1;
-
-      if (previousPostIndex >= 0) {
-        setPreviousPost(blogPostsIndex[previousPostIndex]);
-      }
-
-      if (nextPostIndex < blogPostsIndex.length) {
-        setNextPost(blogPostsIndex[nextPostIndex]);
-      }
-
-      setIsLoading(false);
-    });
   };
 
   useEffect(() => {
+    setIsLoading(true);
     getCurrentPostData();
   }, []);
 

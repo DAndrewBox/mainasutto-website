@@ -30,10 +30,12 @@ export const BlogPreviewWrapper = styled.div`
     cursor: pointer;
   }
 
+  @media screen and (max-width: 1024px) {
+    width: 90%;
+  }
+
   @media screen and (max-width: 768px) {
     align-items: center;
-    width: 90%;
-
     &:nth-of-type(even) {
       & > div {
         flex-direction: column;
@@ -59,8 +61,8 @@ export const BlogPreviewContainer = styled.div`
     flex-direction: column;
     justify-content: flex-start;
     gap: 0.5rem;
-    height: 25rem;
     text-align: center;
+    height: 25rem;
   }
 `;
 
@@ -121,6 +123,10 @@ export const BlogPreviewContentContainer = styled.div`
       }
     }
   }
+
+  @media screen and (max-width: 1024px) {
+    flex: 6.5;
+  }
 `;
 
 export const BlogPreviewImage = styled.div`
@@ -135,6 +141,10 @@ export const BlogPreviewImage = styled.div`
     min-height: 10rem;
     width: 100%;
   }
+
+  @media screen and (max-width: 1024px) {
+    flex: 3.5;
+  }
 `;
 
 export const BlogPreviewTitle = styled.h3`
@@ -142,8 +152,11 @@ export const BlogPreviewTitle = styled.h3`
   font-weight: bold;
   font-family: 'Montserrat', sans-serif;
   margin: 0.25rem 0;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1024px) {
     font-size: 1.875rem;
   }
 `;
@@ -190,7 +203,7 @@ export const BlogPreviewSeparator = styled.hr`
     display: none;
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1024px) {
     width: 100%;
   }
 `;

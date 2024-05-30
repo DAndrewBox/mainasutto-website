@@ -20,6 +20,15 @@ export const ChipText = styled.span`
   transform: translateY(-0.05rem);
 `;
 
+export const ChipTextIcon = styled.span`
+  font-size: 0.75rem;
+  font-family: 'Open Sans', sans-serif;
+  color: ${(props) => props.color};
+  text-align: center;
+  transform: translateY(-0.05rem);
+  margin-right: 0.5rem;
+`;
+
 export const ChipIcon = styled.img`
   width: .875rem;
   height: .875rem;

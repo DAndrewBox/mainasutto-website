@@ -26,4 +26,14 @@ export const YoutubeTrailerContainer = styled.div`
       border-radius: 0;
     }
   }
+
+  @media screen and (max-width: 1024px) {
+    height: 36rem;
+
+    & > article {
+      width: 100%;
+      height: 36rem;
+      border-radius: 0;
+    }
+  }
 `;

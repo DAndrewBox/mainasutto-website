@@ -8,7 +8,7 @@ export const BlogLoaderWrapper = styled.div`
   width: 100%;
   height: 100%;
 
-  ${({ isLoading }) => (isLoading ? 'animation: wrapper-loading .66s ease-in-out infinite alternate;' : '')};
+  ${({ $isLoading }) => ($isLoading ? 'animation: wrapper-loading .66s ease-in-out infinite alternate;' : '')};
   transition: all 0.33s ease-in;
 
   @keyframes wrapper-loading {

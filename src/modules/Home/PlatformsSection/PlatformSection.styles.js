@@ -16,6 +16,13 @@ export const PlatformsContainer = styled.div`
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
   }
+
+  @media screen and (max-width: 1024px) {
+    max-width: 95%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: .5rem;
+  }
 `;
 
 export const Platform = styled.a`
@@ -61,6 +68,16 @@ export const Platform = styled.a`
 
     span {
       font-size: 0.75rem;
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    img {
+      width: 80%;
+    }
+
+    span {
+      font-size: 1rem;
     }
   }
 `;

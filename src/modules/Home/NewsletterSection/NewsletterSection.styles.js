@@ -7,7 +7,7 @@ export const NewsletterConsent = styled.p`
   text-align: center;
   margin-bottom: 3.5rem;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1024px) {
     font-size: 0.75rem;
     margin-bottom: 2rem;
   }

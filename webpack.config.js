@@ -26,7 +26,6 @@ module.exports = {
       '~': path.resolve(__dirname + '/src'),
       '@assets': path.resolve(__dirname + '/src/public/assets'),
       '@common': path.resolve(__dirname + '/src/common'),
-      '@posts': path.resolve(__dirname + '/src/public/posts'),
       '@store': path.resolve(__dirname + '/src/store'),
       '@utils': path.resolve(__dirname + '/src/utils'),
     },

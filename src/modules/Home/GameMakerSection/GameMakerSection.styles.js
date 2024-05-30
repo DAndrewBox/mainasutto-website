@@ -11,6 +11,10 @@ export const GameMakerContainer = styled.div`
   @media screen and (max-width: 768px) {
     width: 90%;
   }
+
+  @media screen and (max-width: 1024px) {
+    width: 80%;
+  }
 `;
 
 export const GameMakerText = styled.h3`

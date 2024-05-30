@@ -4,39 +4,56 @@ import { BlogContainer, BlogPostsNavigationContainer, BlogPostsNavigationButton 
 import { Loader, Footer } from '@common';
 import { useNavigate } from 'react-router-dom';
 import { BlogContext } from '@store';
-import { getPostData } from './utils';
-import blogPostsIndex from '@posts/index.json';
+import { getPostsPerPage } from './utils';
 import { CommonPage } from '../Pages.styles';
 
 export const Blog = () => {
   const navigate = useNavigate();
   const context = useContext(BlogContext);
-  const POST_PER_PAGE = 8;
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
 
   const [currentPage, setCurrentPage] = useState(0);
-  const [currentPostIndex, setCurrentPostIndex] = useState(0);
-  const [isLoading, setIsLoading] = useState(true);
-  const [isLoadingPosts, setIsLoadingPosts] = useState(false);
-  const [firstTimeLoad, setFirstTimeLoad] = useState(true);
   const [posts, setPosts] = useState([]);
+  const [hasNewerPage, setHasNewerPage] = useState(false);
+  const [hasOlderPage, setHasOlderPage] = useState(false);
+
+  const [isLoading, setIsLoading] = useState(true);
+  const [isLoadingPosts, setIsLoadingPosts] = useState(true);
 
   const onPostClick = (post) => {
     setIsLoadingPosts(true);
     context.dispatch({ type: 'SET_CURRENT_POST', payload: post });
+
+    setTimeout(() => {
+      navigate(`/blog/${post.id}`);
+    }, 1000);
   };
 
   const onOlderPostsClick = () => {
     const newPage = currentPage + 1;
     setCurrentPage(newPage);
-    setCurrentPostIndex(POST_PER_PAGE * newPage);
+    handleNewPage(newPage);
   };
 
   const onNewerPostsClick = () => {
     const newPage = currentPage - 1;
     setCurrentPage(newPage);
-    setCurrentPostIndex(POST_PER_PAGE * newPage);
+    handleNewPage(newPage);
+  };
+
+  const handleNewPage = async (page) => {
+    setIsLoadingPosts(true);
+    try {
+      const newPosts = await getPostsPerPage(page);
+      setCurrentPage(page);
+      setPosts(newPosts?.posts || []);
+      setHasNewerPage(newPosts?.hasNewerPage || false);
+      setHasOlderPage(newPosts?.hasOlderPage || false);
+      context.dispatch({ type: 'SET_POSTS', payload: newPosts?.posts || [] });
+    } finally {
+      setIsLoadingPosts(false);
+    }
   };
 
   useEffect(() => {
@@ -44,18 +61,14 @@ export const Blog = () => {
     const postsCached = context.getState().posts;
 
     if (postsCached.length > 0) {
+      setIsLoadingPosts(true);
       setPosts(postsCached);
-    } else {
-      Promise.all(blogPostsIndex.map((post) => getPostData(post))).then((posts) => {
-        const sortedPosts = posts.sort((a, b) => b.id - a.id);
-        setPosts(sortedPosts);
-        context.dispatch({ type: 'SET_POSTS', payload: sortedPosts });
-      });
+      setCurrentPage(actualPage);
+      setIsLoadingPosts(false);
+      return;
     }
 
-    setCurrentPage(actualPage);
-    setCurrentPostIndex(POST_PER_PAGE * actualPage);
-    setFirstTimeLoad(false);
+    handleNewPage(actualPage);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -68,41 +81,30 @@ export const Blog = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentPage]);
 
-  useEffect(() => {
-    if (isLoadingPosts === true) {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      setTimeout(() => {
-        setIsLoadingPosts(false);
-        navigate(`/blog/${context.getState().currentPost.id}`, { replace: true });
-      }, Math.random() * 1000);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isLoadingPosts]);
-
   setTimeout(() => {
     setIsLoading(false);
   }, 2000);
 
   return (
     <CommonPage>
-      {(firstTimeLoad || isLoadingPosts) && <BlogLoader isLoading />}
+      {isLoadingPosts && <BlogLoader isLoading />}
       {isLoading && <Loader isLoading={isLoading} />}
 
       <BlogNavbar />
       <BlogContainer>
         {posts.length > 0 &&
-          [...posts]
-            .slice(currentPostIndex, currentPostIndex + POST_PER_PAGE)
-            .map((post, index) => <BlogPreview key={`post-${index}`} post={post} onClick={() => onPostClick(post)} />)}
+          [...posts].map((post, index) => (
+            <BlogPreview key={`post-${index}`} post={post} onClick={() => onPostClick(post)} />
+          ))}
 
         {
           <BlogPostsNavigationContainer>
-            {(posts.length > POST_PER_PAGE && currentPage < posts.length / POST_PER_PAGE - 1 && (
+            {(hasOlderPage && (
               <BlogPostsNavigationButton onClick={onOlderPostsClick}>
                 <span>{'Older Posts'}</span> <span>{'>'}</span>
               </BlogPostsNavigationButton>
             )) || <div></div>}
-            {posts.length > POST_PER_PAGE && currentPage > 0 && (
+            {hasNewerPage && (
               <BlogPostsNavigationButton onClick={onNewerPostsClick}>
                 <span>{'<'}</span> <span>{'Newer Posts'}</span>
               </BlogPostsNavigationButton>

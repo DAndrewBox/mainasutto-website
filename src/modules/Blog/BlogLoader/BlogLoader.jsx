@@ -17,7 +17,7 @@ export const BlogLoader = ({ isLoading, caption = 'loader_text_loading' }) => {
   }
   
   return (
-    <BlogLoaderWrapper isLoading={isLoading}>
+    <BlogLoaderWrapper $isLoading={isLoading}>
       <BlogLoaderContainer>
         <BlogLoaderContentContainer>
           <BlogLoaderImage src={LoadingImage} />

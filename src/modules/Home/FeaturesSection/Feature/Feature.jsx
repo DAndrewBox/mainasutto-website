@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { FeatureContainer, FeatureDescription, FeatureImage, FeatureTitle } from './Feature.styles';
 
 export const Feature = ({ title, description, src, inverted }) => {
-  const isMobile = window.innerWidth <= 768;
+  const isMobile = window.innerWidth <= 1024;
 
   // Add class 'appear' to the FeatureContainer when it's in the viewport
   useEffect(() => {

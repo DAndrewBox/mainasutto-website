@@ -70,6 +70,10 @@ export const SectionTitle = styled.h2`
     letter-spacing: 0.1rem;
     font-size: 1.75rem;
   }
+
+  @media screen and (max-width: 1024px) {
+    font-size: 2.5rem;
+  }
 `;
 
 export const SectionSubtitle = styled.p`

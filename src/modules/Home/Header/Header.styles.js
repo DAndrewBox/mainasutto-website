@@ -87,8 +87,13 @@ export const HeaderContent = styled.div`
         filter: drop-shadow(0rem 0rem 1.66rem rgba(255, 255, 255, 0.25));
       }
     }
+
     @media screen and (max-width: 768px) {
       width: 130vw;
+    }
+
+    @media screen and (max-width: 1024px) {
+      width: 100vw;
     }
   }
 
@@ -111,6 +116,11 @@ export const HeaderSocialsContainer = styled.div`
     padding-top: 2rem;
     width: 90vw;
     grid-gap: 0.25rem;
+  }
+
+  @media screen and (max-width: 1024px) {
+    width: 60vw;
+    grid-gap: 0.5rem;
   }
 `;
 

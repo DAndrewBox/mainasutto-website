@@ -91,7 +91,7 @@ export const GalleryImage = styled.img`
   -webkit-user-select: none;
   -ms-user-select: none;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     width: 100vw;
     height: 100%;
     transform: translateX(0);

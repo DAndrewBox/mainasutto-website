@@ -34,6 +34,12 @@ export const FeatureContainer = styled.div`
     grid-template-columns: 1fr !important;
     width: 95%;
   }
+
+  @media screen and (max-width: 1024px) {
+    grid-template-columns: 1fr !important;
+    margin: auto;
+    margin-top: 1rem;
+  }
 `;
 
 export const FeatureImage = styled.img`
@@ -64,6 +70,11 @@ export const FeatureTitle = styled.h3`
     font-size: 1.5rem;
     text-align: center !important;
   }
+
+  @media screen and (max-width: 1024px) {
+    font-size: 2.5rem;
+    text-align: center !important;
+  }
 `;
 
 export const FeatureDescription = styled.p`
@@ -83,8 +94,13 @@ export const FeatureDescription = styled.p`
     color: var(--color-highlight-secondary);
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1024px) {
     font-size: 1.125rem;
+    text-align: center !important;
+  }
+
+  @media screen and (max-width: 1024px) {
+    font-size: 1.25rem;
     text-align: center !important;
   }
 `;

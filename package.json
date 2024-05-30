@@ -25,6 +25,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "dev": "webpack serve --open",
+    "api": "cd api && nodemon index.js",
     "build": "webpack --config webpack.config.js --mode production",
     "build-react": "react-scripts build"
   },

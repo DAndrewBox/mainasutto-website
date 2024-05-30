@@ -13,10 +13,14 @@ export const BlogContainer = styled.div`
   width: 70vw;
   min-height: 80vh;
 
-  @media screen and (max-width: 768px) {
-    width: 100vw;
-    padding: 0;
+  @media screen and (max-width: 1024px) {
+    width: 95vw;
     padding-bottom: 1rem;
+  }
+
+  @media screen and (max-width: 768px) {
+    padding: 0;
+    width: 100vw;
   }
 `;
 

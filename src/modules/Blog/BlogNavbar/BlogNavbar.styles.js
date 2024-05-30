@@ -77,7 +77,7 @@ export const BlogNavbarItem = styled.a`
   transition: all 0.16s ease-in-out;
 
   ${(props) =>
-    props.currentPage
+    props.$currentPage
       ? `
     border-bottom: 2px solid var(--color-text-secondary);
     color: var(--color-text-primary);

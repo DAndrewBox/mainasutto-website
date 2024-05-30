@@ -18,6 +18,10 @@ export const TeamContainer = styled.div`
     align-items: center;
     text-align: center;
   }
+
+  @media screen and (max-width: 1024px) {
+    width: 80%;
+  }
 `;
 
 export const TeamIntroduction = styled.div`
@@ -32,6 +36,12 @@ export const TeamIntroduction = styled.div`
 
   @media screen and (max-width: 768px) {
     width: 90%;
+    font-size: 0.875rem;
+    margin-top: -0.5rem;
+  }
+
+  @media screen and (max-width: 1024px) {
+    width: 80%;
     font-size: 0.875rem;
     margin-top: -0.5rem;
   }
@@ -78,6 +88,10 @@ export const TeamMember = styled.div`
     &:last-child {
       background-color: #0798ce33;
     }
+  }
+
+  @media screen and (max-width: 1024px) {
+    max-width: 80%;
   }
 `;
 
@@ -138,6 +152,11 @@ export const TeamThanksContainer = styled.div`
     width: 90%;
     text-align: center;
   }
+
+  @media screen and (max-width: 1024px) {
+    width: 80%;
+    text-align: center;
+  }
 `;
 
 export const TeamThanksTitle = styled.h3`
@@ -174,6 +193,11 @@ export const TeamThanksMemberContainer = styled.div`
 
   @media screen and (max-width: 768px) {
     grid-template-columns: 1fr;
+    text-align: left;
+  }
+
+  @media screen and (max-width: 1024px) {
+    grid-template-columns: 1fr 1fr;
     text-align: left;
   }
 `;

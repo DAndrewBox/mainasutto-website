@@ -60,3 +60,16 @@ export const NotFoundText = styled.p`
     font-size: 1.875rem;
   }
 `;
+
+export const NotFoundSubtext = styled.p`
+  position: fixed;
+  bottom: 2rem;
+  font-size: 1.25rem;
+  font-weight: 400;
+  font-family: 'Open Sans', sans-serif;
+  color: var(--color-text-secondary);
+
+  @media (max-width: 768px) {
+    top: 2rem;
+  }
+`;
