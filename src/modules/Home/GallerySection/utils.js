@@ -20,7 +20,4 @@ export const images = [
   {
     src: require('@assets/images/gallery/6.webp'),
   },
-  {
-    src: require('@assets/images/gallery/7.webp'),
-  },
 ];

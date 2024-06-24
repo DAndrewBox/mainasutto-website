@@ -1,4 +1,4 @@
-const BASE_API_URL = process.env.NODE_ENV === 'production' ? 'https://mainasutto.com' : 'http://localhost:3000';
+const BASE_API_URL = process.env.NODE_ENV === 'production' ? 'https://mainasutto.com' : 'http://localhost:3001';
 
 /**
  * Fetches post data from a given post object.
