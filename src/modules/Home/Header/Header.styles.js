@@ -92,7 +92,7 @@ export const HeaderContent = styled.div`
       width: 130vw;
     }
 
-    @media screen and (max-width: 1024px) {
+    @media screen and (min-width: 769px) and (max-width: 1336px) {
       width: 100vw;
     }
   }
@@ -118,7 +118,7 @@ export const HeaderSocialsContainer = styled.div`
     grid-gap: 0.25rem;
   }
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (min-width: 769px) and (max-width: 1336px) {
     width: 60vw;
     grid-gap: 0.5rem;
   }

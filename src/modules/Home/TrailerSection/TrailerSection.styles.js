@@ -27,7 +27,7 @@ export const YoutubeTrailerContainer = styled.div`
     }
   }
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (min-width: 769px) and (max-width: 1366px) {
     height: 36rem;
 
     & > article {

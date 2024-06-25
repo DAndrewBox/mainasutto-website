@@ -17,6 +17,19 @@ export const ReleasesTable = ({ title, subtitle, releases }) => {
   const goBack = () => {
     navigate('/');
   };
+  const handleDownload = async (path) => {
+    const BASE_API_URL = process.env.NODE_ENV === 'production' ? 'https://mainasutto.com' : 'http://localhost:3001';
+    const response = await fetch(`${BASE_API_URL}/api/releases/${path}`);
+    if (response.status === 200) {
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = path.split('/').pop();
+      a.click();
+      window.URL.revokeObjectURL(url);
+    }
+  };
 
   return (
     <ReleasesTableContainer>
@@ -33,7 +46,7 @@ export const ReleasesTable = ({ title, subtitle, releases }) => {
 
         <ReleasesTableBody>
           {releases.map((release) => (
-            <ReleasesTableRow key={release.version} href={release.href} target="_blank">
+            <ReleasesTableRow key={release.version} onClick={() => handleDownload(release.href)} target="_blank">
               <ReleasesTableCell>{release.name}</ReleasesTableCell>
               <ReleasesTableCell>{release.version}</ReleasesTableCell>
               <ReleasesTableCell>{release.date}</ReleasesTableCell>

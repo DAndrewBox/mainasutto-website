@@ -18,7 +18,7 @@ export const MailchimpFormContainer = styled.form`
     width: 95%;
   }
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (min-width: 769px) and (max-width: 1366px) {
     width: 80%;
   }
 `;
@@ -36,7 +36,7 @@ export const MailchimpFormHeader = styled.img`
     height: 10rem;
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (min-width: 769px) and (max-width: 1366px) {
     width: 100%;
     height: 16rem;
   }
@@ -84,7 +84,7 @@ export const MailchimpInputContainer = styled.div`
     width: 90%;
   }
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (min-width: 769px) and (max-width: 1366px) {
     margin-bottom: 0.25rem;
   }
 `;
@@ -127,7 +127,7 @@ export const MailchimpButtonContainer = styled.div`
     }
   }
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (min-width: 769px) and (max-width: 1024px) {
     > button {
       margin-top: 0;
     }

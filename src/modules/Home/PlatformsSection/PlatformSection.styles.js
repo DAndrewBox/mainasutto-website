@@ -17,7 +17,7 @@ export const PlatformsContainer = styled.div`
     gap: 1rem;
   }
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (min-width: 769px) and (max-width: 1366px) {
     max-width: 95%;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -71,7 +71,7 @@ export const Platform = styled.a`
     }
   }
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (min-width: 769px) and (max-width: 1024px) {
     img {
       width: 80%;
     }

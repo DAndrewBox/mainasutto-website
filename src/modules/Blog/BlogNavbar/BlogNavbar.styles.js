@@ -41,10 +41,6 @@ export const BlogNavbarContainer = styled.div`
     &:hover {
       text-shadow: 0 0 .25rem #ffffff99;
     }
-
-    @media screen and (max-width: 768px) {
-      display: none;
-    }
   }
 
   @media screen and (max-width: 768px) {
@@ -53,6 +49,10 @@ export const BlogNavbarContainer = styled.div`
     align-content: center;
     justify-items: center;
     padding: 1rem 0;
+
+    & > a:first-child {
+      display: none;
+    }
   }
 `;
 

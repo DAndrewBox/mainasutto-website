@@ -88,4 +88,14 @@ app.get(baseURL + '/blog/posts/:id', async (req, res) => {
   }
 });
 
+app.get(baseURL + '/releases/:path/:file', async (req, res) => {
+  try {
+    const filepath = path.join(__dirname, '/releases/', req.params.path, '/', req.params.file);
+    res.download(filepath);
+  } catch (e) {
+    console.log(e);
+    res.status(500).send({ error: e.message, data: null });
+  }
+});
+
 module.exports = { app, port };

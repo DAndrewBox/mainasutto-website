@@ -71,7 +71,7 @@ export const SectionTitle = styled.h2`
     font-size: 1.75rem;
   }
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (min-width: 769px) and (max-width: 1024px) {
     font-size: 2.5rem;
   }
 `;

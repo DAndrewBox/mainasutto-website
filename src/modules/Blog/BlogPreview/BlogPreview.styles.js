@@ -30,7 +30,7 @@ export const BlogPreviewWrapper = styled.div`
     cursor: pointer;
   }
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (min-width:769px) and (max-width: 1024px) {
     width: 90%;
   }
 
@@ -124,7 +124,7 @@ export const BlogPreviewContentContainer = styled.div`
     }
   }
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (min-width:769px) and (max-width: 1024px) {
     flex: 6.5;
   }
 `;
@@ -142,7 +142,7 @@ export const BlogPreviewImage = styled.div`
     width: 100%;
   }
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (min-width:769px) and (max-width: 1024px) {
     flex: 3.5;
   }
 `;
@@ -156,7 +156,7 @@ export const BlogPreviewTitle = styled.h3`
   text-overflow: ellipsis;
   overflow: hidden;
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 1366px) {
     font-size: 1.875rem;
   }
 `;

@@ -12,7 +12,7 @@ export const GameMakerContainer = styled.div`
     width: 90%;
   }
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (min-width:769px) and (max-width: 1024px) {
     width: 80%;
   }
 `;

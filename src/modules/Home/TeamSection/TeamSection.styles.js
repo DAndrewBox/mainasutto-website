@@ -19,7 +19,7 @@ export const TeamContainer = styled.div`
     text-align: center;
   }
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (min-width: 769px) and (max-width: 1366px) {
     width: 80%;
   }
 `;
@@ -40,7 +40,7 @@ export const TeamIntroduction = styled.div`
     margin-top: -0.5rem;
   }
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (min-width: 769px) and (max-width: 1366px) {
     width: 80%;
     font-size: 0.875rem;
     margin-top: -0.5rem;
@@ -90,7 +90,7 @@ export const TeamMember = styled.div`
     }
   }
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (min-width: 769px) and (max-width: 1366px) {
     max-width: 80%;
   }
 `;
@@ -153,7 +153,7 @@ export const TeamThanksContainer = styled.div`
     text-align: center;
   }
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (min-width: 769px) and (max-width: 1366px) {
     width: 80%;
     text-align: center;
   }
@@ -196,7 +196,7 @@ export const TeamThanksMemberContainer = styled.div`
     text-align: left;
   }
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (min-width: 769px) and (max-width: 1366px) {
     grid-template-columns: 1fr 1fr;
     text-align: left;
   }
