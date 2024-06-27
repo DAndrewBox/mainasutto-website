@@ -93,6 +93,7 @@ export const ReleasesTableRow = styled.a`
     background-color: #f6a63f33;
     color: var(--color-text-primary);
     text-shadow: 0 0 0.5rem rgba(255, 255, 255, 0.33);
+    cursor: pointer;
   }
 `;
 

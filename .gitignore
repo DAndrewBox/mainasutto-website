@@ -22,3 +22,7 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+*/API/node_modules*
+*.zip
+/API/node_modules

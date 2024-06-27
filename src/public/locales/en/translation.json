@@ -42,5 +42,6 @@
   "footer_line1": "<bold>Mainasutto</bold> is a game delveloped by <bold>DAndrëwBox</bold>",
   "footer_line2": "It will be released soon. Don't dispair!",
   "loader_text_loading": "Loading",
-  "loader_text_redirect": "Redirecting"
+  "loader_text_redirect": "Redirecting",
+  "loader_text_download": "Downloading file"
 }

@@ -3,56 +3,63 @@
     "name": "I'm Not Alone –",
     "version": "v0.10 to v0.12",
     "date": "2015-05-30 to 2015-06-02",
-    "href": "",
+    "href": "beta/Mainasutto-v010-v012.zip",
     "notes": "Initial private beta releases."
   },
   {
     "name": "I'm Not Alone –",
     "version": "v0.30 to v0.35",
     "date": "2015-06-21",
-    "href": "",
+    "href": "beta/Mainasutto-v030-v035.zip",
     "notes": "Previous versions v0.13 to v0.29 were lost in a hard drive crash. This versions had only bug fixes and minor changes between them."
   },
   {
     "name": "Mainasutto",
     "version": "v0.36",
     "date": "2015-06-22",
-    "href": "",
+    "href": "beta/Mainasutto-v036.zip",
     "notes": "First time the game was renamed to Mainasutto. Pre-Demo 1."
   },
   {
     "name": "Mainasutto",
     "version": "v0.37b",
     "date": "2015-06-22",
-    "href": "",
+    "href": "beta/Mainasutto_v037b_[aka DEMO 1].zip",
     "notes": "Demo 1. Also known as the Newgrounds Demo. First public release."
   },
   {
-    "name": "Mainasutto",
+    "name": "Mainasutto: I'm not Alone",
     "version": "v0.40",
     "date": "2016-05-04",
-    "href": "",
+    "href": "beta/Mainasutto_v040_[GDP 2016 DEMO 2].zip",
     "notes": "GDP 2016 demo. Showcased at the Gamedev Planet 2016 event. First time the game was showcased in public."
   },
   {
     "name": "Mainasutto: I'm not Alone",
-    "version": "v0.41 to v0.48",
+    "version": "v0.45",
+    "date": "2016-11-13*",
+    "href": "beta/Mainasutto_v045_[aka TECH DEMO].zip",
+    "notes": "Also known as the second tech demo. *The date is an estimate."
+  },
+  {
+    "name": "Mainasutto: I'm not Alone",
+    "version": "v0.47 to v0.48",
     "date": "2017-05-13 to 2017-07-14",
-    "href": "",
+    "href": "beta/Mainasutto-v047-v049-2017.zip",
     "notes": "These builds were part of the 2017 playtesting phase of the game. They were never released to the public, only via Discord to beta testers."
   },
   {
     "name": "Mainasutto: I'm not Alone",
     "version": "v0.49",
     "date": "2018-07-15 to 2018-08-15",
-    "href": "",
+    "href": "beta/Mainasutto-v049-2018.zip",
     "notes": "These builds were for private beta testing. They were never released to the public now showcased in events, just appered in videos."
   },
   {
     "name": "Mainasutto: I'm not Alone",
     "version": "v0.50",
     "date": "2019-11-14",
-    "href": "",
-    "notes": "Small demo for a HypeTrain Digital. It was released a year later in TIGSource forums."
+    "href": "beta/Mainasutto_v050_Publishers_Demo.zip",
+    "notes": "Small demo for a Publisher. It was released about a year later in TIGSource forums."
   }
 ]

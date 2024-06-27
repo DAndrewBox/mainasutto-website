@@ -42,5 +42,6 @@
   "footer_line1": "<bold>Mainasutto</bold> es un juego desarrollado por <bold>DAndrëwBox</bold>",
   "footer_line2": "Será lanzado pronto. ¡No desesperes!",
   "loader_text_loading": "Cargando",
-  "loader_text_redirect": "Redirigiendo"
+  "loader_text_redirect": "Redirigiendo",
+  "loader_text_download": "Descargando archivo"
 }
