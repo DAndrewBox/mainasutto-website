@@ -470,5 +470,13 @@
     "image": "https://i.imgur.com/SLOAaIV.png",
     "filepath": "newsletter/0.md",
     "tags": ["ANNOUNCEMENT", "NEWSLETTER"]
+  },
+  {
+    "title": "July 2024 Newsletter - Reworking the First 20 Minutes!",
+    "author": "Drëw",
+    "date": 1722119100,
+    "image": "https://i.imgur.com/cee1yOB.png",
+    "filepath": "newsletter/1.md",
+    "tags": ["NEWSLETTER"]
   }
 ]
