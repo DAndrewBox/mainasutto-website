@@ -9,7 +9,7 @@ import {
 import { useTranslation } from '@utils/i18n';
 import { useNavigate } from 'react-router-dom';
 
-export const MailchimpForm = () => {
+export const MailchimpForm = ({ width }) => {
   const navigate = useNavigate();
   const { t } = useTranslation();
   const [isSubscribed, setIsSubscribed] = useState(false);
@@ -55,7 +55,7 @@ export const MailchimpForm = () => {
   const labelSubscribe = isSubscribed ? t('newsletter_success') : t('newsletter_subscribe');
 
   return (
-    <MailchimpFormContainer onSubmit={onSubmit}>
+    <MailchimpFormContainer onSubmit={onSubmit} $width={width}>
       <MailchimpFormHeader src={MaichimpHeaderImage} alt="Mailchimp" />
       <MailchimpInputContainer>
         <div>

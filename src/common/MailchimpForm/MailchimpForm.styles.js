@@ -5,7 +5,7 @@ export const MailchimpFormContainer = styled.form`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 50%;
+  width: ${({ $width }) => $width ?? '50%'};
   margin: 0 auto;
   padding-bottom: 1.25rem;
   background: #ddd;
@@ -15,11 +15,11 @@ export const MailchimpFormContainer = styled.form`
   filter: drop-shadow(0px 0.5rem 2.5rem rgb(255, 255, 255, 0.25));
 
   @media screen and (max-width: 768px) {
-    width: 95%;
+    width: ${({ $width }) => $width ?? '95%'};
   }
 
   @media screen and (min-width: 769px) and (max-width: 1366px) {
-    width: 80%;
+    width: ${({ $width }) => $width ?? '80%'};
   }
 `;
 

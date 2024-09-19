@@ -2,10 +2,17 @@ import { useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { BlogContext } from '@store/BlogProvider';
 import { BlogNavbar, BlogPost, BlogLoader } from '~/modules';
-import { BlogContainer, BlogPostsNavigationButton, BlogPostsNavigationContainer } from './Blog.styles';
+import {
+  BlogContainer,
+  BlogPostsNavigationButton,
+  BlogPostsNavigationContainer,
+  NewsletterContainer,
+  NewsletterTitle,
+} from './Blog.styles';
 import { getPostData } from './utils';
 import { Footer } from '@common';
 import { CommonPage } from '../Pages.styles';
+import { MailchimpForm } from '@common';
 
 export const BlogPostPage = () => {
   const { postID: postId } = useParams();
@@ -96,6 +103,15 @@ export const BlogPostPage = () => {
 
       <BlogContainer>
         <BlogPost post={postData} />
+
+        {/* Insert newsletter subscribe */}
+        {postData?.tags.includes('NEWSLETTER') && (
+          <NewsletterContainer>
+            <NewsletterTitle>Want to get a TLDR version of the newsletter every month?</NewsletterTitle>
+            <MailchimpForm />
+          </NewsletterContainer>
+        )}
+
         <NavigationSection />
       </BlogContainer>
       <Footer />

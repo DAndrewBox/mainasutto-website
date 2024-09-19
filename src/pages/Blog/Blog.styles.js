@@ -82,3 +82,22 @@ export const BlogPostsNavigationButton = styled.a`
     font-size: 0.75rem;
   }
 `;
+
+export const NewsletterContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  border-top: 1px solid #ccc;
+`;
+
+export const NewsletterTitle = styled.h4`
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-family: 'Open Sans', sans-serif;
+  color: var(--color-bg-secondary);
+  margin: 1rem 0;
+  text-align: center;
+`;
