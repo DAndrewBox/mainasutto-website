@@ -28,7 +28,7 @@ export const BlogPostsNavigationContainer = styled.div`
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
-  width: ${({ width }) => (width ? width : '80%')};
+  width: ${({ width }) => (width ? width : '90%')};
   margin-top: 1.25rem;
   padding-top: 0.5rem;
   border-top: 2px solid #ccc;

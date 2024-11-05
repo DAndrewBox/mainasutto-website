@@ -145,6 +145,7 @@ export const BlogPostContentText = styled.div`
     video {
       max-width: 100%;
       margin-top: 0.5rem;
+      border-radius: 0.25rem;
     }
 
     & > p {
@@ -154,11 +155,13 @@ export const BlogPostContentText = styled.div`
       color: var(--color-bg-secondary);
       letter-spacing: 0.025rem;
       margin: 0;
+      margin-top: 0.25rem;
       padding: 0;
 
       img {
         max-width: 100%;
         margin-top: 0.5rem;
+        border-radius: 0.25rem;
       }
     }
 
@@ -184,6 +187,7 @@ export const BlogPostContentText = styled.div`
     img,
     video {
       width: 100%;
+      border-radius: 0.25rem;
     }
   }
 
@@ -204,8 +208,17 @@ export const BlogPostContentText = styled.div`
     }
   }
 
-  h3 {
+  h2 {
+    text-spacing: 0.125rem;
+    margin-bottom: 0.5rem;
+  }
+
+  h3, h4 {
     margin-bottom: 0;
+  }
+
+  hr {
+    border-color: #cccccc40;
   }
 
   @media screen and (max-width: 768px) {

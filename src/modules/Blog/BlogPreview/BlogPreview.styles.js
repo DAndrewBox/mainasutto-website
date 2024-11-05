@@ -5,11 +5,13 @@ export const BlogPreviewWrapper = styled.div`
   flex-direction: column;
   align-items: flex-start;
   color: var(--color-bg-primary);
-  width: 80%;
+  width: 90%;
   padding: 0.875rem 0.5rem;
   min-height: 10rem;
   transition: all 0.2s ease-in;
   justify-content: flex-start;
+  border-radius: 0.25rem;
+  border: 1px solid transparent;
 
   &:first-child {
     margin-top: 1.5rem;
@@ -27,6 +29,7 @@ export const BlogPreviewWrapper = styled.div`
 
   &:hover {
     background-color: #ddd;
+    border-color: #cccccc80;
     cursor: pointer;
   }
 
@@ -124,8 +127,12 @@ export const BlogPreviewContentContainer = styled.div`
     }
   }
 
+  @media screen and (max-width: 768px) {
+    flex: 6;
+  }
+
   @media screen and (min-width:769px) and (max-width: 1024px) {
-    flex: 6.5;
+    flex: 6;
   }
 `;
 
@@ -135,15 +142,15 @@ export const BlogPreviewImage = styled.div`
   background-size: cover;
   background-position: center;
   border-radius: 0.25rem;
-  min-width: 30%;
 
   @media screen and (max-width: 768px) {
     min-height: 10rem;
     width: 100%;
+    flex: 4;
   }
 
   @media screen and (min-width:769px) and (max-width: 1024px) {
-    flex: 3.5;
+    flex: 4;
   }
 `;
 
@@ -153,8 +160,6 @@ export const BlogPreviewTitle = styled.h3`
   font-family: 'Montserrat', sans-serif;
   margin: 0.25rem 0;
   white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
 
   @media screen and (max-width: 1366px) {
     font-size: 1.875rem;
@@ -193,7 +198,7 @@ export const BlogPreviewContent = styled.div`
 `;
 
 export const BlogPreviewSeparator = styled.hr`
-  width: 80%;
+  width: 90%;
   height: 1px;
   border: none;
   border-bottom: 1px solid #ccc;

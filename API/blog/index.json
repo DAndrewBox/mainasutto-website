@@ -486,5 +486,21 @@
     "image": "https://i.imgur.com/Q4XlaED.png",
     "filepath": "newsletter/2.md",
     "tags": ["NEWSLETTER", "LIFE"]
+  },
+  {
+    "title": "September 2024 Newsletter - Act 0 Progress",
+    "author": "Drëw",
+    "date": 1727753134,
+    "image": "https://i.imgur.com/HpuLKb0.png",
+    "filepath": "newsletter/3.md",
+    "tags": ["NEWSLETTER"]
+  },
+  {
+    "title": "October 2024 Newsletter - Where Everything Starts",
+    "author": "Drëw",
+    "date": 1730768610,
+    "image": "https://i.imgur.com/1pZM8Wo.png",
+    "filepath": "newsletter/4.md",
+    "tags": ["NEWSLETTER", "LIFE"]
   }
 ]
