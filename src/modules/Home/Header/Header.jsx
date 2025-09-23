@@ -1,3 +1,10 @@
+import HeaderVideoPoster from '@assets/images/headervideo_v3.webp';
+import MainasuttoLogo from '@assets/images/logo_v2.webp';
+import backgroundVideo from '@assets/videos/headervideo_v3.webm';
+import { CaretDown, CaretRight, Discord, Steam, Twitter, Youtube } from '@common/Icons';
+import { useTranslation } from '@utils/i18n';
+import { useState } from 'react';
+import i18n from '../../../public/i18n';
 import {
   HeaderCTA,
   HeaderContainer,
@@ -9,14 +16,7 @@ import {
   NavLangMenu,
   NavLangMenuItem,
 } from './Header.styles';
-import backgroundVideo from '@assets/videos/headervideo_v2_360p.webm';
-import MainasuttoLogo from '@assets/images/logo_v2.webp';
-import HeaderVideoPoster from '@assets/images/headervideo_v2.webp';
 import { HeaderIcon } from './HeaderIcon';
-import { Discord, Steam, Twitter, Youtube, CaretDown, CaretRight } from '@common/Icons';
-import { useTranslation } from '@utils/i18n';
-import { useState } from 'react';
-import i18n from '../../../public/i18n';
 
 export const Header = () => {
   const [langMenuOpen, setLangMenuOpen] = useState(false);
@@ -136,7 +136,7 @@ export const Header = () => {
       </HeaderContent>
       <HeaderNavBar className={langMenuOpen ? 'active' : ''}>
         {navItems.map((item, index) => (
-          <HeaderNavItem key={`nav-item-${index}`} href={item.url} onClick={item?.onClick || (() => {})}>
+          <HeaderNavItem key={`nav-item-${index}`} href={item.url} onClick={item?.onClick || (() => { })}>
             {item.label}
           </HeaderNavItem>
         ))}

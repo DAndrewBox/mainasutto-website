@@ -9,7 +9,7 @@ export const specialThanks = [
     name: 'Ignacio Soto',
     username: 'Klonoz',
     role: 'Beta Enemy Sprites & Additional Art',
-    image: 'https://pbs.twimg.com/profile_images/1728637655267602432/q8J_UUAS_400x400.jpg',
+    image: 'https://i1.sndcdn.com/avatars-r9vAy24JRlxoQfTB-xTczzA-t1080x1080.jpg',
   },
   {
     name: 'Fco Cifuentes',
@@ -70,6 +70,6 @@ export const specialThanks = [
     name: 'Xor',
     username: 'XorDev',
     role: 'Shaders & VFX Help',
-    image: 'https://pbs.twimg.com/profile_images/1709578571264503808/QtnsQg5n_400x400.jpg',
+    image: 'https://substackcdn.com/image/fetch/w_96,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fedf69737-7d50-4dc8-9cce-aad9b9019215_512x512.png',
   },
 ];

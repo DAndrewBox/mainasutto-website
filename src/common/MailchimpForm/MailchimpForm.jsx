@@ -1,13 +1,13 @@
+import MaichimpHeaderImage from '@assets/images/newsletter_header_v2.webp';
+import { useTranslation } from '@utils/i18n';
 import React, { useState } from 'react';
-import MaichimpHeaderImage from '@assets/images/newsletter_header.webp';
+import { useNavigate } from 'react-router-dom';
 import {
   MailchimpButtonContainer,
   MailchimpFormContainer,
   MailchimpFormHeader,
   MailchimpInputContainer,
 } from './MailchimpForm.styles';
-import { useTranslation } from '@utils/i18n';
-import { useNavigate } from 'react-router-dom';
 
 export const MailchimpForm = ({ width }) => {
   const navigate = useNavigate();

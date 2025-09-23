@@ -43,5 +43,7 @@
   "footer_line2": "It will be released soon. Don't dispair!",
   "loader_text_loading": "Loading",
   "loader_text_redirect": "Redirecting",
-  "loader_text_download": "Downloading file"
+  "loader_text_download": "Downloading file",
+  "loader_text_too_long": "If this takes too long, click here!",
+  "blog_read_on_steam": "Read this newsletter on Steam!"
 }

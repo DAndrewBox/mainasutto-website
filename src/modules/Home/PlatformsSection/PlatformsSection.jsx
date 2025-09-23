@@ -1,7 +1,7 @@
 import { Section } from '@common';
-import { Platform, PlatformsContainer } from './PlatformSection.styles';
 import { useTranslation } from '@utils/i18n';
 import { useNavigate } from 'react-router-dom';
+import { Platform, PlatformsContainer } from './PlatformSection.styles';
 import { platforms } from './utils';
 
 export const PlatformsSection = () => {

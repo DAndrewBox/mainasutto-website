@@ -5,10 +5,14 @@ import { useState } from 'react';
 
 export const Redirect = ({ to, waitFor = 1000, children }) => {
   const [showLoader, setShowLoader] = useState(false);
+  const [setRedirect, setSetRedirect] = useState(false);
 
   const handleRedirect = () => {
     setTimeout(() => {
-      redirectTo(to);
+      if (!setRedirect) {
+        redirectTo(to, false);
+        setSetRedirect(true);
+      }
     }, 1000);
   };
 
@@ -20,7 +24,7 @@ export const Redirect = ({ to, waitFor = 1000, children }) => {
   return (
     <CommonPage>
       {children}
-      {showLoader && <BlogLoader caption={'loader_text_redirect'} isLoading />}
+      {showLoader && <BlogLoader caption={'loader_text_redirect'} redirectUrl={to} isLoading />}
     </CommonPage>
   );
 };

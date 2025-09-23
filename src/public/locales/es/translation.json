@@ -43,5 +43,7 @@
   "footer_line2": "Será lanzado pronto. ¡No desesperes!",
   "loader_text_loading": "Cargando",
   "loader_text_redirect": "Redirigiendo",
-  "loader_text_download": "Descargando archivo"
+  "loader_text_download": "Descargando archivo",
+  "loader_text_too_long": "Si la página no carga, ¡presiona aquí!",
+  "blog_read_on_steam": "Léelo en Steam!"
 }

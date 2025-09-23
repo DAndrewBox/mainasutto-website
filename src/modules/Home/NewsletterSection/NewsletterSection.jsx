@@ -1,7 +1,7 @@
-import { Section, MailchimpForm } from '@common';
+import $backgroundImage from '@assets/images/newsletter_background_v2.webp';
+import { MailchimpForm, Section } from '@common';
 import { useTranslation } from '@utils/i18n';
 import { NewsletterConsent } from './NewsletterSection.styles';
-import $backgroundImage from '@assets/images/newsletter_background.webp';
 
 export const NewsletterSection = () => {
   const { t } = useTranslation();

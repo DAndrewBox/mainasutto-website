@@ -54,11 +54,12 @@ export const BlogLoaderImage = styled.img`
 `;
 
 export const BlogLoaderText = styled.p`
-  font-size: 1rem;
+  font-size: 1.125rem;
   font-weight: 500;
   font-family: 'Montserrat', sans-serif;
   color: var(--color-text-primary);
   text-shadow: 0 0 2px var(--color-bg-primary);
+  letter-spacing: 1px;
 
   & > span {
     margin-left: 0.16rem;
@@ -75,5 +76,18 @@ export const BlogLoaderText = styled.p`
     &:nth-child(3) {
       animation-delay: 0.66s;
     }
+  }
+`;
+
+export const BlogLoaderUrl = styled.a`
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0;
+  color: var(--color-highlight-primary);
+  transition: all 0.25s ease-in;
+
+  &:hover {
+    color: var(--color-highlight-secondary);
+    letter-spacing: .5px;
   }
 `;

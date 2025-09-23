@@ -8,15 +8,19 @@ import {
   BlogPostAuthor,
   BlogPostContentText,
   BlogPostTags,
+  BlogPostSubtitle,
 } from './BlogPost.styles';
+import { BlogSteamLink } from '../BlogSteamLink/BlogSteamLink';
 
 export const BlogPost = ({ post }) => {
-  const title = post?.title ?? '';
+  const title = post?.title?.split('-')[0] ?? '';
+  const subtitle = post?.title?.split('-')[1] ?? '';
   const date = post?.date ?? '';
   const author = post?.author ?? '';
   const image = post?.image ?? '';
   const tags = post?.tags ?? [];
   const html = post?.html ?? '';
+  const steamLink = post?.steamlink ?? '';
 
   if (post === null) {
     return null;
@@ -25,8 +29,10 @@ export const BlogPost = ({ post }) => {
   return (
     <BlogPostWrapper>
       {image && <BlogPostImage src={image} />}
+      {steamLink && <BlogSteamLink url={steamLink} />}
       <BlogPostContent>
-        {title && <BlogPostTitle>{title}</BlogPostTitle>}
+        {title && <BlogPostTitle>{title?.trim()}</BlogPostTitle>}
+        {subtitle && <BlogPostSubtitle>{subtitle?.trim()}</BlogPostSubtitle>}
         <span>
           {date && (
             <>

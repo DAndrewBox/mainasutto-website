@@ -1,7 +1,10 @@
+import $backgroundImage from '@assets/images/newsletter_background_v2.webp';
+import { Footer, MailchimpForm } from '@common';
+import { BlogContext } from '@store/BlogProvider';
 import { useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { BlogContext } from '@store/BlogProvider';
-import { BlogNavbar, BlogPost, BlogLoader } from '~/modules';
+import { BlogLoader, BlogNavbar, BlogPost } from '~/modules';
+import { CommonPage } from '../Pages.styles';
 import {
   BlogContainer,
   BlogPostsNavigationButton,
@@ -10,9 +13,6 @@ import {
   NewsletterTitle,
 } from './Blog.styles';
 import { getPostData } from './utils';
-import { Footer } from '@common';
-import { CommonPage } from '../Pages.styles';
-import { MailchimpForm } from '@common';
 
 export const BlogPostPage = () => {
   const { postID: postId } = useParams();
@@ -106,8 +106,8 @@ export const BlogPostPage = () => {
 
         {/* Insert newsletter subscribe */}
         {postData?.tags.includes('NEWSLETTER') && (
-          <NewsletterContainer>
-            <NewsletterTitle>Want to get a TLDR version of the newsletter every month?</NewsletterTitle>
+          <NewsletterContainer $backgroundImage={$backgroundImage}>
+            <NewsletterTitle>Want to get a TLDR version of the newsletter first?</NewsletterTitle>
             <MailchimpForm />
           </NewsletterContainer>
         )}

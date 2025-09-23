@@ -8,11 +8,14 @@ export const MailchimpFormContainer = styled.form`
   width: ${({ $width }) => $width ?? '50%'};
   margin: 0 auto;
   padding-bottom: 1.25rem;
-  background: #ddd;
-  border-color: #333;
+  background: #a62d6733;
+  border-width: 1px;
+  border-style: inset;
+  border-color: #66333333;
   border-radius: 0.5rem;
   font-family: 'Open Sans', sans-serif;
-  filter: drop-shadow(0px 0.5rem 2.5rem rgb(255, 255, 255, 0.25));
+  filter: drop-shadow(0px 0.5rem 2.5rem rgb(255, 200, 160, 0.16));
+  backdrop-filter: blur(5px);
 
   @media screen and (max-width: 768px) {
     width: ${({ $width }) => $width ?? '95%'};
@@ -26,7 +29,7 @@ export const MailchimpFormContainer = styled.form`
 export const MailchimpFormHeader = styled.img`
   width: 100%;
   height: auto;
-  max-height: 18rem;
+  max-height: 16rem;
   border-radius: 0.5rem 0.5rem 0 0;
   margin-bottom: 1rem;
   object-fit: cover;
@@ -50,6 +53,7 @@ export const MailchimpInputContainer = styled.div`
   margin-bottom: 1rem;
   align-items: center;
   justify-content: center;
+  color: var(--color-text-primary);
 
   > div {
     display: flex;
@@ -57,7 +61,7 @@ export const MailchimpInputContainer = styled.div`
 
     > input {
       padding: 0.5rem;
-      border: 1px solid #333;
+      border: 1px solid #66333399;
       height: 1.16rem;
       border-radius: 0.25rem;
     }
@@ -72,7 +76,7 @@ export const MailchimpInputContainer = styled.div`
       }
 
       > span:last-of-type {
-        color: #333;
+        color: #999;
         font-weight: 300;
         font-size: 0.75rem;
       }
@@ -97,10 +101,10 @@ export const MailchimpButtonContainer = styled.div`
 
   > button {
     padding: 0.5rem 1rem;
-    border: 2px solid var(--color-bg-primary);
+    border: 2px solid #a62d67;
     border-radius: 0.5rem;
     background: transparent;
-    color: var(--color-bg-primary);
+    color: var(--color-text-primary);
     font-size: 1.25rem;
     font-weight: 500;
     font-family: 'Montserrat', sans-serif;
@@ -108,7 +112,7 @@ export const MailchimpButtonContainer = styled.div`
     transition: all ease-out 0.25s;
 
     &:hover {
-      background: var(--color-bg-primary);
+      background: #a62d67;
       color: var(--color-text-primary);
     }
 

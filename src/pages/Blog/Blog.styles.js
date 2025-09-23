@@ -89,15 +89,24 @@ export const NewsletterContainer = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
+  margin-left: -2rem;
+  margin-right: -2rem;
+  padding: 1.25rem;
 
-  border-top: 1px solid #ccc;
+  background-image: url(${({ $backgroundImage }) => $backgroundImage});
+  background-size: cover;
+  background-position-y: center;
+  background-attachment: fixed;
+
+  filter: drop-shadow(0px 0px .25rem rgba(0, 0, 0, 0.3));
 `;
 
 export const NewsletterTitle = styled.h4`
-  font-size: 1.5rem;
+  font-size: 1.675rem;
   font-weight: 700;
   font-family: 'Open Sans', sans-serif;
-  color: var(--color-bg-secondary);
-  margin: 1rem 0;
+  color: var(--color-text-primary);
+  margin-top: 0;
+  margin-bottom: 1.50rem;
   text-align: center;
 `;

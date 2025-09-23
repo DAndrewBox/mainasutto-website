@@ -8,7 +8,7 @@
 export const redirectTo = (to, newWindow = true) => {
   const baseUrl = window.location.origin;
 
-  if (to.includes('http')) {
+  if (to.startsWith('http')) {
     if (newWindow) {
       window.open(to, '_blank');
       return;

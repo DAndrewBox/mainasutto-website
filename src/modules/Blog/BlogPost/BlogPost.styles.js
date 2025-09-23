@@ -40,7 +40,7 @@ export const BlogPostContent = styled.div`
 `;
 
 export const BlogPostTitle = styled.h1`
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: 700;
   font-family: 'Montserrat', sans-serif;
   color: var(--color-bg-primary);
@@ -49,6 +49,21 @@ export const BlogPostTitle = styled.h1`
 
   @media screen and (max-width: 768px) {
     font-size: 2rem;
+    text-align: center;
+  }
+`;
+
+export const BlogPostSubtitle = styled.h2`
+  font-size: 1.5rem;
+  font-weight: 500;
+  font-family: 'Montserrat', sans-serif;
+  color: var(--color-bg-primary);
+  margin-bottom: 0.5rem;
+  margin-top: 0;
+  letter-spacing: 0.025rem;
+
+  @media screen and (max-width: 768px) {
+    font-size: 1.25rem;
     text-align: center;
   }
 `;
@@ -213,7 +228,8 @@ export const BlogPostContentText = styled.div`
     margin-bottom: 0.5rem;
   }
 
-  h3, h4 {
+  h3,
+  h4 {
     margin-bottom: 0;
   }
 
