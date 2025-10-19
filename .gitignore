@@ -26,3 +26,6 @@ yarn-error.log*
 */API/node_modules*
 *.zip
 /API/node_modules
+
+package-lock.json
+yarn.lock

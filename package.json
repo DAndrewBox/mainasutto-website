@@ -23,7 +23,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "rmdir build /s /q && vite build",
+    "build": "rimraf build && vite build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "api": "cd api && nodemon index.js",
