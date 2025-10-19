@@ -4,7 +4,8 @@ import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
 import viteTsconfigPaths from 'vite-tsconfig-paths';
 
-const __dirname = fileURLToPath(new URL('.', import.meta.url));
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 const reactPlugin = react({
   include: ['**/*.jsx', '**/*.js', '**/*.tsx', '**/*.ts'], // Explicitly include all file types
 });
@@ -34,4 +35,5 @@ export default defineConfig({
     },
   },
   appType: 'spa',
+  base: './',
 });

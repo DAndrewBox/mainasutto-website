@@ -1,7 +1,10 @@
-import { createBrowserRouter } from 'react-router-dom';
+import { createBrowserRouter, createHashRouter } from 'react-router-dom';
 import { Alpha, Beta, Blog, BlogPostPage, Home, NotFound, Redirect, Released } from '../pages';
 
-const router = createBrowserRouter([
+const isGithubPages = !!process.env.GH_ENV;
+const routerCallback = isGithubPages ? createHashRouter : createBrowserRouter;
+
+const router = routerCallback([
   {
     path: '/',
     element: <Home />,
