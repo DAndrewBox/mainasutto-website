@@ -16,7 +16,7 @@ export const MailchimpForm = ({ width }: MailchimpFormProps) => {
   const onSubmit = async (e: FormEvent) => {
     e.preventDefault();
     const eventTarget = e.target as HTMLFormElement;
-    const url = process.env.MAILCHIMP_NEWSLETTER_URL ?? '';
+    const url = import.meta.env.VITE_MAILCHIMP_NEWSLETTER_URL ?? '';
     const email = eventTarget.EMAIL.value;
     const emailIsValid =
       email.includes('@') &&

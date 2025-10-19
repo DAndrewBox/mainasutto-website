@@ -26,10 +26,7 @@
   "scripts": {
     "dev": "vite",
     "build": "rimraf build && vite build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
     "api": "cd api && nodemon index.js",
-    "build-react": "react-scripts build",
     "lint": "biome format --write && biome lint",
     "type-check": "tsc --noEmit"
   },
