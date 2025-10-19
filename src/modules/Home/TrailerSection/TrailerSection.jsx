@@ -1,7 +1,7 @@
-import { Section } from '@common';
+import Section from '@common/Section';
+import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 import { PlatformsSection } from '../PlatformsSection';
 import { YoutubeTrailerContainer } from './TrailerSection.styles';
-import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 
 export const TrailerSection = () => {
   return (

@@ -1,6 +1,6 @@
 import PicDrew from '@assets/images/team/team_drew.webp';
 import PicErik from '@assets/images/team/team_erik.webp';
-import { Section } from '@common';
+import Section from '@common/Section';
 import { useTranslation } from '@utils/i18n';
 import { Trans } from 'react-i18next';
 import {

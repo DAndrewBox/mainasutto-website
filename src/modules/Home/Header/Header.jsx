@@ -1,9 +1,9 @@
 import HeaderVideoPoster from '@assets/images/headervideo_v3.webp';
 import MainasuttoLogo from '@assets/images/logo_v2.webp';
 import backgroundVideo from '@assets/videos/headervideo_v3.webm';
+import { CaretDown, CaretRight, Discord, Steam, Twitter, Youtube } from '@src/Icons';
 import { useTranslation } from '@utils/i18n';
 import { useState } from 'react';
-import { CaretDown, CaretRight, Discord, Steam, Twitter, Youtube } from '~/Icons';
 import i18n from '../../../public/i18n';
 import { HeaderContainer, HeaderContent, HeaderCTA, HeaderNavBar, HeaderNavItem, HeaderOverlay, HeaderSocialsContainer, NavLangMenu, NavLangMenuItem } from './Header.styles';
 import { HeaderIcon } from './HeaderIcon';

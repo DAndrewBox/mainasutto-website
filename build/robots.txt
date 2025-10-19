@@ -1,0 +1,9 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+Allow: /alpha
+Allow: /beta
+Allow: /blog
+Allow: /blog/*
+Allow: /released
+Disallow:

@@ -1,8 +1,8 @@
+export { FeaturesSection } from './FeaturesSection/FeaturesSection';
+export { GallerySection } from './GallerySection/GallerySection';
+export { GameMakerSection } from './GameMakerSection/GameMakerSection';
 export * from './Header';
-export * from './TrailerSection';
-export * from './FeaturesSection';
 export * from './NewsletterSection';
 export * from './PlatformsSection';
-export * from './GallerySection';
 export * from './TeamSection';
-export * from './GameMakerSection';
+export * from './TrailerSection';

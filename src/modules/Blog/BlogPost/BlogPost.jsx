@@ -1,4 +1,4 @@
-import { Chip } from '@common';
+import Chip from '@src/common/Chip';
 import { BlogSteamLink } from '../BlogSteamLink/BlogSteamLink';
 import { BlogPostAuthor, BlogPostContent, BlogPostContentText, BlogPostDate, BlogPostImage, BlogPostSubtitle, BlogPostTags, BlogPostTitle, BlogPostWrapper } from './BlogPost.styles';
 

@@ -1,4 +1,4 @@
-import { Chip } from '@common';
+import Chip from '@src/common/Chip';
 import { BlogPreviewAuthor, BlogPreviewContainer, BlogPreviewContent, BlogPreviewContentContainer, BlogPreviewDate, BlogPreviewImage, BlogPreviewSeparator, BlogPreviewTitle, BlogPreviewWrapper } from './BlogPreview.styles';
 
 export const BlogPreview = ({ post, onClick }) => {

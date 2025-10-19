@@ -1,1 +1,0 @@
-export { MailchimpForm } from './MailchimpForm';

@@ -1,4 +1,4 @@
-import { Section } from '@common';
+import Section from '@common/Section';
 import { useTranslation } from '@utils/i18n';
 import { Platform, PlatformsContainer } from './PlatformSection.styles';
 import { platforms } from './utils';

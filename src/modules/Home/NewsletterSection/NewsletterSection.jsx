@@ -1,5 +1,6 @@
 import $backgroundImage from '@assets/images/newsletter_background_v2.webp';
-import { MailchimpForm, Section } from '@common';
+import MailchimpForm from '@src/common/MailchimpForm';
+import Section from '@src/common/Section';
 import { useTranslation } from '@utils/i18n';
 import { NewsletterConsent } from './NewsletterSection.styles';
 
