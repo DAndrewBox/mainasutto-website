@@ -48,7 +48,7 @@ export const BlogPostPage = () => {
 
     // Fetch the blog posts index from the context.
     try {
-      const postRes = await getPostData(postId);
+      const postRes = await getPostData(Number(postId));
       context.dispatch({ type: 'SET_CURRENT_POST', payload: postRes.post });
       setPostData(postRes.post);
       setPreviousPost(postRes.previousPost);

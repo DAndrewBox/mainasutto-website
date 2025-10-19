@@ -1,7 +1,7 @@
 import Footer from '@common/Footer';
 import Loader from '@common/Loader';
 import { BlogLoader, BlogNavbar, BlogPreview } from '@src/modules';
-import { BlogContext } from '@store/BlogProvider';
+import { BlogContext, type BlogPost } from '@store/BlogProvider';
 import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { CommonPage } from '../Pages.styles';
@@ -22,9 +22,9 @@ export const Blog = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [isLoadingPosts, setIsLoadingPosts] = useState(true);
 
-  const onPostClick = (post) => {
+  const onPostClick = (post: BlogPost) => {
     setIsLoadingPosts(true);
-    context.dispatch({ type: 'SET_CURRENT_POST', payload: post });
+    context.dispatch({ type: 'SET_CURRENT_POST', payload: post as unknown });
 
     setTimeout(() => {
       navigate(`/blog/${post.id}`);
@@ -43,7 +43,7 @@ export const Blog = () => {
     handleNewPage(newPage);
   };
 
-  const handleNewPage = async (page) => {
+  const handleNewPage = async (page: number) => {
     setIsLoadingPosts(true);
     try {
       const newPosts = await getPostsPerPage(page);

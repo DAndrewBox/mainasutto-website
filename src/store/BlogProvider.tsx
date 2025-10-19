@@ -16,8 +16,18 @@ export interface BlogPost {
 }
 
 export interface BlogState {
-  posts: BlogPost[];
-  currentPost: BlogPost;
+  posts?: BlogPost[];
+  currentPost?: BlogPost;
+}
+
+export interface BlogAction {
+  type: 'SET_POSTS' | 'SET_CURRENT_POST';
+  payload: BlogState;
+}
+
+export interface BlogStore {
+  getState: () => BlogState;
+  dispatch: (action: BlogAction) => void;
 }
 
 const BlogInitialState: BlogState = {
@@ -49,7 +59,7 @@ const BlogReducer = (state = BlogInitialState, action = undefined) => {
   }
 };
 
-export const BlogContext = createContext({});
+export const BlogContext = createContext(BlogInitialState as BlogStore);
 export const BlogProvider = ({ children }) => {
   const BlogStore = createStore(BlogReducer, BlogInitialState);
   return <BlogContext.Provider value={BlogStore}>{children}</BlogContext.Provider>;

@@ -16,7 +16,19 @@ import {
 
 const BASE_API_URL = process.env.NODE_ENV === 'production' ? 'https://mainasutto.com' : 'http://localhost:3001';
 
-export const ReleasesTable = ({ title, subtitle, releases }) => {
+interface ReleaseTableProps {
+  title: string;
+  subtitle: string;
+  releases: {
+    name: string;
+    version: string;
+    date: string;
+    href: string;
+    notes?: string;
+  }[];
+}
+
+export const ReleasesTable = ({ title, subtitle, releases }: ReleaseTableProps) => {
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
   const goBack = () => {

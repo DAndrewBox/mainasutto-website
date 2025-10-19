@@ -19,6 +19,8 @@
     "react-slideshow-image": "^4.3.1",
     "redux": "^5.0.1",
     "styled-components": "^6.1.8",
+    "tsc": "^2.0.4",
+    "typescript": "^5.9.3",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -28,7 +30,8 @@
     "eject": "react-scripts eject",
     "api": "cd api && nodemon index.js",
     "build-react": "react-scripts build",
-    "lint": "biome format --write && biome lint"
+    "lint": "biome format --write && biome lint",
+    "type-check": "tsc --noEmit"
   },
   "eslintConfig": {
     "extends": [

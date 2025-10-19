@@ -1,6 +1,6 @@
 import MaichimpHeaderImage from '@assets/images/newsletter_header_v2.webp';
 import { useTranslation } from '@utils/i18n';
-import { useState } from 'react';
+import { type FormEvent, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { MailchimpButtonContainer, MailchimpFormContainer, MailchimpFormHeader, MailchimpInputContainer } from './MailchimpForm.styles';
 
@@ -13,10 +13,11 @@ export const MailchimpForm = ({ width }: MailchimpFormProps) => {
   const { t } = useTranslation();
   const [isSubscribed, setIsSubscribed] = useState(false);
 
-  const onSubmit = async (e) => {
+  const onSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    const url = 'https://mainasutto.us19.list-manage.com/subscribe/post?u=e8e1c2520918363f497159ed6&amp;id=cce15c7d64&amp;f_id=0070a7e4f0';
-    const email = e.target.EMAIL.value;
+    const eventTarget = e.target as HTMLFormElement;
+    const url = process.env.MAILCHIMP_NEWSLETTER_URL ?? '';
+    const email = eventTarget.EMAIL.value;
     const emailIsValid =
       email.includes('@') &&
       email.includes('.') &&
@@ -32,8 +33,8 @@ export const MailchimpForm = ({ width }: MailchimpFormProps) => {
       return;
     }
 
-    const nickname = e.target.NICKNAME.value ?? email.split('@')[0];
-    const isBot = e.target['mce-ANTIBOT-LAYER'].value !== '0000';
+    const nickname = eventTarget.NICKNAME.value ?? email.split('@')[0];
+    const isBot = eventTarget['mce-ANTIBOT-LAYER'].value !== '0000';
 
     if (isBot) {
       navigate('/');

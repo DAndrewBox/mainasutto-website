@@ -10,6 +10,7 @@ interface FeatureProps {
 
 export const Feature = ({ title, description, src, inverted }: FeatureProps) => {
   const isMobile = window.innerWidth <= 1024;
+  const titleAlt = typeof title === 'string' ? title : 'Feature Image';
 
   // Add class 'appear' to the FeatureContainer when it's in the viewport
   useEffect(() => {
@@ -37,14 +38,14 @@ export const Feature = ({ title, description, src, inverted }: FeatureProps) => 
           <FeatureTitle className={'inverted'}>{title}</FeatureTitle>
           <FeatureDescription className={'inverted'}>{description}</FeatureDescription>
         </span>
-        <FeatureImage src={src} loading="lazy" alt={title} />
+        <FeatureImage src={src} loading="lazy" alt={titleAlt} />
       </FeatureContainer>
     );
   }
 
   return (
     <FeatureContainer className="FeatureContainer">
-      <FeatureImage src={src} loading="lazy" alt={title} />
+      <FeatureImage src={src} loading="lazy" alt={titleAlt} />
       <span>
         <FeatureTitle>{title}</FeatureTitle>
         <FeatureDescription>{description}</FeatureDescription>
