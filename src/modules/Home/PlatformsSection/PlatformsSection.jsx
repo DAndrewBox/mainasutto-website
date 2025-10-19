@@ -1,11 +1,9 @@
 import { Section } from '@common';
 import { useTranslation } from '@utils/i18n';
-import { useNavigate } from 'react-router-dom';
 import { Platform, PlatformsContainer } from './PlatformSection.styles';
 import { platforms } from './utils';
 
 export const PlatformsSection = () => {
-  const navigate = useNavigate();
   const { t } = useTranslation();
 
   const handlePlatformClick = (platform) => {
@@ -17,12 +15,8 @@ export const PlatformsSection = () => {
   return (
     <Section>
       <PlatformsContainer>
-        {platforms.map((platform, index) => (
-          <Platform
-            key={`platform-${index}`}
-            onClick={() => handlePlatformClick(platform)}
-            $active={platform.href !== ''}
-          >
+        {platforms.map((platform) => (
+          <Platform key={`platform-${platform.name}`} onClick={() => handlePlatformClick(platform)} $active={platform.href !== ''}>
             <img src={platform.icon} alt={platform.name} />
             <span>{t(platform.status)}</span>
           </Platform>

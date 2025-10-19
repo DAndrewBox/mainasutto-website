@@ -1,13 +1,8 @@
 import MaichimpHeaderImage from '@assets/images/newsletter_header_v2.webp';
 import { useTranslation } from '@utils/i18n';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {
-  MailchimpButtonContainer,
-  MailchimpFormContainer,
-  MailchimpFormHeader,
-  MailchimpInputContainer,
-} from './MailchimpForm.styles';
+import { MailchimpButtonContainer, MailchimpFormContainer, MailchimpFormHeader, MailchimpInputContainer } from './MailchimpForm.styles';
 
 export const MailchimpForm = ({ width }) => {
   const navigate = useNavigate();
@@ -16,8 +11,7 @@ export const MailchimpForm = ({ width }) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    const url =
-      'https://mainasutto.us19.list-manage.com/subscribe/post?u=e8e1c2520918363f497159ed6&amp;id=cce15c7d64&amp;f_id=0070a7e4f0';
+    const url = 'https://mainasutto.us19.list-manage.com/subscribe/post?u=e8e1c2520918363f497159ed6&amp;id=cce15c7d64&amp;f_id=0070a7e4f0';
     const email = e.target.EMAIL.value;
     const emailIsValid =
       email.includes('@') &&
@@ -59,15 +53,17 @@ export const MailchimpForm = ({ width }) => {
       <MailchimpFormHeader src={MaichimpHeaderImage} alt="Mailchimp" />
       <MailchimpInputContainer>
         <div>
-          <label>
+          <label htmlFor="mce-EMAIL">
             Email <span>*</span> <span>(required)</span>
           </label>
           <input type="email" name="EMAIL" id="mce-EMAIL" required disabled={isSubscribed} />
         </div>
+
         <div>
-          <label>Nickname</label>
+          <label htmlFor="mce-NICKNAME">Nickname</label>
           <input type="text" name="NICKNAME" id="mce-NICKNAME" disabled={isSubscribed} />
         </div>
+
         <div>
           <input type="hidden" name="mce-ANTIBOT-LAYER" tabIndex="-1" value="0000" />
         </div>

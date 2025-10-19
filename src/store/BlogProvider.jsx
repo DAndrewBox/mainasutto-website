@@ -13,7 +13,7 @@ const BlogInitialState = {
   },
 };
 
-const BlogReducer = (state = BlogInitialState, action) => {
+const BlogReducer = (state = BlogInitialState, action = undefined) => {
   switch (action.type) {
     case 'SET_POSTS':
       return {

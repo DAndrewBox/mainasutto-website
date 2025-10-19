@@ -6,7 +6,7 @@ const router = createBrowserRouter([
     path: '/',
     exact: true,
     element: <Home />,
-    errorElement: (<NotFound />),
+    errorElement: <NotFound />,
   },
   {
     path: '/alpha',

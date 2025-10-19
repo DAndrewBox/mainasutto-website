@@ -1,16 +1,6 @@
 import { Chip } from '@common';
-import {
-  BlogPostContent,
-  BlogPostImage,
-  BlogPostWrapper,
-  BlogPostTitle,
-  BlogPostDate,
-  BlogPostAuthor,
-  BlogPostContentText,
-  BlogPostTags,
-  BlogPostSubtitle,
-} from './BlogPost.styles';
 import { BlogSteamLink } from '../BlogSteamLink/BlogSteamLink';
+import { BlogPostAuthor, BlogPostContent, BlogPostContentText, BlogPostDate, BlogPostImage, BlogPostSubtitle, BlogPostTags, BlogPostTitle, BlogPostWrapper } from './BlogPost.styles';
 
 export const BlogPost = ({ post }) => {
   const title = post?.title?.split('-')[0] ?? '';
@@ -41,7 +31,12 @@ export const BlogPost = ({ post }) => {
           )}
           {author && <BlogPostAuthor>{author}</BlogPostAuthor>}
         </span>
-        <BlogPostTags>{tags && tags.map((tag) => <Chip key={`tag-${tag}`} type={tag} />)}</BlogPostTags>
+        <BlogPostTags>
+          {tags?.map((tag) => (
+            <Chip key={`tag-${tag}`} type={tag} />
+          ))}
+        </BlogPostTags>
+        {/** biome-ignore lint/security/noDangerouslySetInnerHtml: We need to do this for Markdown to HTML conversion */}
         {html && <BlogPostContentText dangerouslySetInnerHTML={{ __html: html }} />}
       </BlogPostContent>
     </BlogPostWrapper>

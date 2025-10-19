@@ -5,13 +5,7 @@ import { useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { BlogLoader, BlogNavbar, BlogPost } from '~/modules';
 import { CommonPage } from '../Pages.styles';
-import {
-  BlogContainer,
-  BlogPostsNavigationButton,
-  BlogPostsNavigationContainer,
-  NewsletterContainer,
-  NewsletterTitle,
-} from './Blog.styles';
+import { BlogContainer, BlogPostsNavigationButton, BlogPostsNavigationContainer, NewsletterContainer, NewsletterTitle } from './Blog.styles';
 import { getPostData } from './utils';
 
 export const BlogPostPage = () => {
@@ -66,11 +60,13 @@ export const BlogPostPage = () => {
     }
   };
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: Only on mount
   useEffect(() => {
     setIsLoading(true);
     getCurrentPostData();
   }, []);
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: Only when postIdChanged
   useEffect(() => {
     if (postIdChanged) {
       getCurrentPostData();
@@ -86,7 +82,7 @@ export const BlogPostPage = () => {
             <span>{`${previousPost.title}`}</span>
             <span>{'>'}</span>
           </BlogPostsNavigationButton>
-        )) || <div></div>}
+        )) || <div />}
         {nextPost && (
           <BlogPostsNavigationButton onClick={handleNextPostClick}>
             <span>{'<'}</span>

@@ -15,8 +15,7 @@ export const specialThanks = [
     name: 'Fco Cifuentes',
     username: 'MetaruPX',
     role: 'Beta NPC Portraits Concepts',
-    image:
-      'https://pbs.twimg.com/profile_images/378800000127854660/0f5b7bec99fd78dfd0d9dea8169f0303_reasonably_small.gif',
+    image: 'https://pbs.twimg.com/profile_images/378800000127854660/0f5b7bec99fd78dfd0d9dea8169f0303_reasonably_small.gif',
   },
   {
     name: 'AngelWZ',
@@ -50,15 +49,13 @@ export const specialThanks = [
     name: 'Rubén Calderón',
     username: 'Eriozu',
     role: 'Alpha/Prototype Tester',
-    image:
-      'https://static-cdn.jtvnw.net/jtv_user_pictures/0e696ab6-a71e-40f1-bea0-ba6c2b330403-profile_image-70x70.png',
+    image: 'https://static-cdn.jtvnw.net/jtv_user_pictures/0e696ab6-a71e-40f1-bea0-ba6c2b330403-profile_image-70x70.png',
   },
   {
     name: 'Ignacio Saavedra',
     username: 'Saign',
     role: 'Alpha/Prototype & Beta Tester',
-    image:
-      'https://static-cdn.jtvnw.net/jtv_user_pictures/4a572902-55dd-49db-a38c-133c3c720555-profile_image-70x70.png',
+    image: 'https://static-cdn.jtvnw.net/jtv_user_pictures/4a572902-55dd-49db-a38c-133c3c720555-profile_image-70x70.png',
   },
   {
     name: 'Jin Franko',

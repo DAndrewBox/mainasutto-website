@@ -38,7 +38,7 @@ export const ReleasesTable = ({ title, subtitle, releases }) => {
 
   return (
     <>
-      <BlogLoader isLoading={isLoading} caption="loader_text_download"/>
+      <BlogLoader isLoading={isLoading} caption="loader_text_download" />
       <ReleasesTableContainer>
         <ReleasesTitle>{title}</ReleasesTitle>
         <ReleasesSubtitle>{subtitle}</ReleasesSubtitle>

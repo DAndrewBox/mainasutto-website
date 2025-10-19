@@ -45,7 +45,7 @@ header .overlay {
   left: 0;
   height: 100%;
   width: 100%;
-  background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(7,7,30,1) 16%, rgba(3,3,15,0) 33%);
+  background: linear-gradient(0deg, rgba(2, 0, 36, 1) 0%, rgba(7, 7, 30, 1) 16%, rgba(3, 3, 15, 0) 33%);
   opacity: 0.5;
   z-index: 1;
 }
@@ -66,7 +66,7 @@ div.logo-container {
   align-items: center;
   opacity: 0;
   padding-bottom: 4rem;
-  animation: logo-container 1.33s ease-out .33s forwards;
+  animation: logo-container 1.33s ease-out 0.33s forwards;
 }
 
 div.logo-container > img {
@@ -83,14 +83,16 @@ div.logo-container > img {
 }
 
 div.logo-container > a {
-  font: 2rem 'Roboto', sans-serif;
+  font:
+    2rem "Roboto",
+    sans-serif;
   font-weight: 700;
-  color: #FFF;
+  color: #fff;
   margin-top: 7rem;
   opacity: 0;
   text-decoration: none;
   z-index: 3;
-  animation: logo-container-cta .33s ease-out 3.16s forwards;
+  animation: logo-container-cta 0.33s ease-out 3.16s forwards;
 }
 
 div.logo-socials-container {
@@ -108,15 +110,15 @@ div.logo-socials-container {
   & > a:nth-child(1) {
     animation-delay: 1s;
   }
-  
+
   & > a:nth-child(2) {
     animation-delay: 1.25s;
   }
-  
+
   & > a:nth-child(3) {
-    animation-delay: 1.50s;
+    animation-delay: 1.5s;
   }
-  
+
   & > a:nth-child(4) {
     animation-delay: 1.75s;
   }
@@ -129,13 +131,13 @@ div.logo-socials-container > a {
   justify-content: center;
   align-items: center;
   text-decoration: none;
-  opacity: .0;
+  opacity: 0;
   z-index: 3;
-  animation: logo-socials-container .33s ease-out 2.33s forwards;
+  animation: logo-socials-container 0.33s ease-out 2.33s forwards;
 }
 
 div.logo-socials-container > a:hover {
-  opacity: 1.0;
+  opacity: 1;
   animation-fill-mode: none;
 }
 
@@ -143,12 +145,12 @@ hr {
   margin: 1.5rem 0;
   min-height: 2px;
   color: #f8f9fa;
-  opacity: .1;
+  opacity: 0.1;
 }
 
 .section-title {
   font-size: 3.5rem;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: bolder;
   color: #ffad22;
   text-align: center;
@@ -178,7 +180,7 @@ div.features-row > div:nth-child(2) {
 
 .play-demo-text {
   transition: 0.16s ease-in-out;
-  color: #DDDDFF;
+  color: #ddddff;
 }
 
 .play-demo-text:hover {
@@ -194,14 +196,14 @@ div.features-row > div:nth-child(2) {
   width: 100%;
   height: auto;
   border-radius: 1rem;
-  animation: features-img-appear 1.33s ease-out .66s forwards;
+  animation: features-img-appear 1.33s ease-out 0.66s forwards;
   object-fit: cover;
   max-height: 360px;
 }
 
 .features-text-title {
   font-size: 3rem;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 600;
   color: #ffad22;
   letter-spacing: 2px;
@@ -209,9 +211,9 @@ div.features-row > div:nth-child(2) {
 
 .features-text-description {
   font-size: 1.16rem;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
   font-weight: lighter;
-  color: #DDDDFF;
+  color: #ddddff;
   line-height: 1.66rem;
 }
 
@@ -221,7 +223,7 @@ div.features-row > div:nth-child(2) {
 }
 
 .features-text-description > del {
-  color: #FF1515;
+  color: #ff1515;
   font-weight: 100;
   text-decoration: double line-through white;
 }
@@ -244,37 +246,38 @@ div.features-row > div:nth-child(2) {
 
 .newsletter-embed {
   background: rgba(255, 255, 255, 1);
-  clear:left;
-  font:14px Helvetica, Arial, sans-serif;
-  -webkit-filter: opacity(.95);
+  clear: left;
+  font:
+    14px Helvetica,
+    Arial,
+    sans-serif;
+  -webkit-filter: opacity(0.95);
   border-radius: 6px;
   padding-left: 0;
   padding-right: 0;
 }
 
-
 /* Scrollbar */
 ::-webkit-scrollbar-track {
-	-webkit-box-shadow: inset 0 0 8px rgba(7, 7, 30, 0.33);
-    background-color:  rgb(33, 33, 55);
-    border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 8px rgba(7, 7, 30, 0.33);
+  background-color: rgb(33, 33, 55);
+  border-radius: 10px;
 }
 
 ::-webkit-scrollbar {
-    width: 8px;
-    border-radius: 10px;
-	background-color: rgb(33, 33, 55);
+  width: 8px;
+  border-radius: 10px;
+  background-color: rgb(33, 33, 55);
 }
 
 ::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-	background-color: rgb(7, 7, 30);
+  border-radius: 10px;
+  background-color: rgb(7, 7, 30);
 }
 
 .no-visible {
-    visibility: hidden;
+  visibility: hidden;
 }
-
 
 /* Animation */
 @keyframes logo-container {
@@ -294,7 +297,7 @@ div.features-row > div:nth-child(2) {
     transform: translateY(16%);
   }
   100% {
-    opacity: .66;
+    opacity: 0.66;
     transform: translateY(0%);
   }
 }
@@ -318,7 +321,7 @@ div.features-row > div:nth-child(2) {
     filter: contrast(1.16) brightness(1.16);
   }
   66% {
-    filter: contrast(.90) brightness(1);
+    filter: contrast(0.9) brightness(1);
   }
   100% {
     filter: contrast(1) brightness(1);
@@ -328,7 +331,7 @@ div.features-row > div:nth-child(2) {
 @keyframes features-img-appear {
   0% {
     opacity: 1;
-    transform: rotateY(180deg) scale(.95);
+    transform: rotateY(180deg) scale(0.95);
     filter: contrast(0);
   }
   100% {
@@ -353,7 +356,7 @@ div.features-row > div:nth-child(2) {
     height: 85vh;
   }
 
-  div.logo-container{
+  div.logo-container {
     min-height: 85vh;
     height: 85vh;
   }
@@ -382,14 +385,14 @@ div.features-row > div:nth-child(2) {
 
   div.features-row {
     flex-direction: column;
-    
+
     & > div {
       min-width: 100%;
-      
+
       & > h3 {
         font-size: 2rem !important;
         text-align: center !important;
-        margin-top: .5rem;
+        margin-top: 0.5rem;
         margin-bottom: 1rem;
       }
 

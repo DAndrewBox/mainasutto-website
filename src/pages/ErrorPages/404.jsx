@@ -1,13 +1,6 @@
-import { Redirect } from '../Redirect';
-import {
-  NotFoundContent,
-  NotFoundDivider,
-  NotFoundSubtext,
-  NotFoundText,
-  NotFoundTitle,
-  NotFoundWrapper,
-} from '../../modules/NotFound';
 import { useEffect, useState } from 'react';
+import { NotFoundContent, NotFoundDivider, NotFoundSubtext, NotFoundText, NotFoundTitle, NotFoundWrapper } from '../../modules/NotFound';
+import { Redirect } from '../Redirect';
 
 export const NotFound = () => {
   const [redirectTimer, setRedirectTimer] = useState(5);
@@ -19,7 +12,7 @@ export const NotFound = () => {
     }, 1000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [redirectTimer]);
 
   return (
     <Redirect to={'/'} waitFor={5000}>

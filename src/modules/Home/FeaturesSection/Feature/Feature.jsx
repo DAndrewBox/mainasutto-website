@@ -25,7 +25,7 @@ export const Feature = ({ title, description, src, inverted }) => {
 
   if (inverted && !isMobile) {
     return (
-      <FeatureContainer style={{ gridTemplateColumns: '55fr 45fr' }} className='inverted FeatureContainer'>
+      <FeatureContainer style={{ gridTemplateColumns: '55fr 45fr' }} className="inverted FeatureContainer">
         <span>
           <FeatureTitle className={'inverted'}>{title}</FeatureTitle>
           <FeatureDescription className={'inverted'}>{description}</FeatureDescription>
@@ -34,9 +34,9 @@ export const Feature = ({ title, description, src, inverted }) => {
       </FeatureContainer>
     );
   }
-  
+
   return (
-    <FeatureContainer className='FeatureContainer'>
+    <FeatureContainer className="FeatureContainer">
       <FeatureImage src={src} loading="lazy" alt={title} />
       <span>
         <FeatureTitle>{title}</FeatureTitle>

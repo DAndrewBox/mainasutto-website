@@ -1,28 +1,32 @@
+import { useTranslation } from '@utils/i18n';
+import { Trans } from 'react-i18next';
+import { Discord, Steam, Twitter, Youtube } from '~/Icons';
 import { FooterContainer, FooterIconsContainer } from './Footer.styles';
 import { FooterIcon } from './FooterIcon';
-import { Discord, Steam, Twitter, Youtube } from '@common';
-import { Trans } from 'react-i18next';
-import { useTranslation } from '@utils/i18n';
 
 export const Footer = () => {
   const { t } = useTranslation();
   const footerIcons = [
     {
+      id: 'steam',
       Component: Steam,
       href: 'https://store.steampowered.com/app/2580170/',
       alt: 'Steam Page',
     },
     {
+      id: 'discord',
       Component: Discord,
       href: 'https://mainasutto.com/discord',
       alt: 'Discord',
     },
     {
+      id: 'twitter',
       Component: Twitter,
       href: 'https://mainasutto.com/twitter',
       alt: 'Twitter / X',
     },
     {
+      id: 'youtube',
       Component: Youtube,
       href: 'https://www.youtube.com/c/DAndrëwBox',
       alt: 'Youtube',
@@ -32,8 +36,8 @@ export const Footer = () => {
   return (
     <FooterContainer>
       <FooterIconsContainer>
-        {footerIcons.map((icon, index) => (
-          <FooterIcon key={`footer-socials-${index}`} {...icon} />
+        {footerIcons.map((icon) => (
+          <FooterIcon key={`footer-socials-${icon.id}`} {...icon} />
         ))}
       </FooterIconsContainer>
       <span>

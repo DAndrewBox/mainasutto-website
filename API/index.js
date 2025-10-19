@@ -1,5 +1,5 @@
-const { app, port } = require('./express');
+const { app, port } = require('./express')
 
 app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
-});
+  console.log(`Server is running on http://localhost:${port}`)
+})

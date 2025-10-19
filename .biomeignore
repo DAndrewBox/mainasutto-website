@@ -1,0 +1,6 @@
+# Ignore all SVG files anywhere
+**/*.svg
+
+# Other ignores
+/build/
+/node_modules/

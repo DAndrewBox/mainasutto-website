@@ -12,7 +12,7 @@ root.render(
     <BlogProvider>
       <RouterProvider router={router} />
     </BlogProvider>
-  </StrictMode>
+  </StrictMode>,
 );
 
 window.scrollTo({ top: 0, behavior: 'smooth' });

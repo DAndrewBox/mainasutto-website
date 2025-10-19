@@ -1,11 +1,11 @@
-import { useContext, useEffect, useState } from 'react';
-import { BlogNavbar, BlogPreview, BlogLoader } from '~/modules';
-import { BlogContainer, BlogPostsNavigationContainer, BlogPostsNavigationButton } from './Blog.styles';
-import { Loader, Footer } from '@common';
-import { useNavigate } from 'react-router-dom';
+import { Footer, Loader } from '@common';
 import { BlogContext } from '@store';
-import { getPostsPerPage } from './utils';
+import { useContext, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { BlogLoader, BlogNavbar, BlogPreview } from '~/modules';
 import { CommonPage } from '../Pages.styles';
+import { BlogContainer, BlogPostsNavigationButton, BlogPostsNavigationContainer } from './Blog.styles';
+import { getPostsPerPage } from './utils';
 
 export const Blog = () => {
   const navigate = useNavigate();
@@ -56,6 +56,7 @@ export const Blog = () => {
     }
   };
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: Only on mount
   useEffect(() => {
     const actualPage = Number(urlParams.get('page')) ?? 0;
     const postsCached = context.getState().posts;
@@ -69,16 +70,14 @@ export const Blog = () => {
     }
 
     handleNewPage(actualPage);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: Only when currentPage changes
   useEffect(() => {
     urlParams.set('page', currentPage);
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    const newURL =
-      window.location.protocol + '//' + window.location.host + window.location.pathname + '?page=' + currentPage;
+    const newURL = `${window.location.protocol}//${window.location.host}${window.location.pathname}?page=${currentPage}`;
     window.history.pushState({ path: newURL }, '', newURL);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentPage]);
 
   setTimeout(() => {
@@ -92,10 +91,7 @@ export const Blog = () => {
 
       <BlogNavbar />
       <BlogContainer>
-        {posts.length > 0 &&
-          [...posts].map((post, index) => (
-            <BlogPreview key={`post-${index}`} post={post} onClick={() => onPostClick(post)} />
-          ))}
+        {posts.length > 0 && [...posts].map((post) => <BlogPreview key={`post-${post.date}`} post={post} onClick={() => onPostClick(post)} />)}
 
         {
           <BlogPostsNavigationContainer>
@@ -103,7 +99,7 @@ export const Blog = () => {
               <BlogPostsNavigationButton onClick={onOlderPostsClick}>
                 <span>{'Older Posts'}</span> <span>{'>'}</span>
               </BlogPostsNavigationButton>
-            )) || <div></div>}
+            )) || <div />}
             {hasNewerPage && (
               <BlogPostsNavigationButton onClick={onNewerPostsClick}>
                 <span>{'<'}</span> <span>{'Newer Posts'}</span>

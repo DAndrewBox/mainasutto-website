@@ -1,6 +1,6 @@
-const { marked } = require('marked');
-const path = require('path');
-const fs = require('fs');
+const { marked } = require('marked')
+const path = require('path')
+const fs = require('fs')
 
 /**
  * Fixes the month value by adding a leading zero if it is less than 10.
@@ -9,8 +9,8 @@ const fs = require('fs');
  * @returns {string} - The fixed month value as a string.
  */
 const fixMonth = (month) => {
-  return month < 10 ? '0' + month : month;
-};
+  return month < 10 ? '0' + month : month
+}
 
 /**
  * Fixes the day value by adding a leading zero if it's less than 10.
@@ -19,8 +19,8 @@ const fixMonth = (month) => {
  * @returns {string} - The fixed day value as a string.
  */
 const fixDay = (day) => {
-  return day < 10 ? '0' + day : day;
-};
+  return day < 10 ? '0' + day : day
+}
 
 /**
  * Returns a formatted date string in the format 'YYYY-MM-DD'.
@@ -28,8 +28,8 @@ const fixDay = (day) => {
  * @returns {string} The formatted date string.
  */
 const getDateString = (date) => {
-  return date.getFullYear() + '-' + fixMonth(date.getMonth() + 1) + '-' + fixDay(date.getDate());
-};
+  return date.getFullYear() + '-' + fixMonth(date.getMonth() + 1) + '-' + fixDay(date.getDate())
+}
 
 /**
  * Replaces specific strings in the given HTML with corresponding image tags.
@@ -58,17 +58,18 @@ const addIcons = (html) => {
     ':wb_sus:': 'https://cdn.discordapp.com/emojis/795851343956803615.webp',
     ':wb_nay:': 'https://cdn.discordapp.com/emojis/795851343595438132.webp',
     ':yay:': 'https://cdn.discordapp.com/emojis/499036186346520587.webp',
-  };
+  }
 
-  const keys = Object.keys(icons);
-  const regex = new RegExp(keys.join('|'), 'g');
+  const keys = Object.keys(icons)
+  const regex = new RegExp(keys.join('|'), 'g')
   let newHtml = html.replace(
     regex,
-    (match) => `<img src="${icons[match]}?size=16" alt="${match}" align="center" valign="middle" vspace="5" hspace="5" />`
-  );
+    (match) =>
+      `<img src="${icons[match]}?size=16" alt="${match}" align="center" valign="middle" vspace="5" hspace="5" />`,
+  )
 
-  return newHtml;
-};
+  return newHtml
+}
 
 /**
  * Slices the given text to a specified length and adds ellipsis if necessary.
@@ -79,11 +80,11 @@ const addIcons = (html) => {
  */
 const textSlice = (text, length) => {
   if (text.length > length) {
-    return text.slice(0, length).split(' ').slice(0, -1).join(' ') + '...';
+    return text.slice(0, length).split(' ').slice(0, -1).join(' ') + '...'
   }
 
-  return text;
-};
+  return text
+}
 
 /**
  * Retrieves and parses data for a blog post.
@@ -96,15 +97,15 @@ const textSlice = (text, length) => {
  * @returns {Object} - The parsed blog post data.
  */
 const getPostDataParsed = async (post) => {
-  const filepath = path.join(__dirname, `/blog/${post.filepath}`);
-  const markdown = fs.readFileSync(filepath, 'utf8');
-  const preview = addIcons(marked(textSlice(markdown, 256)));
-  const html = addIcons(marked(markdown));
+  const filepath = path.join(__dirname, `/blog/${post.filepath}`)
+  const markdown = fs.readFileSync(filepath, 'utf8')
+  const preview = addIcons(marked(textSlice(markdown, 256)))
+  const html = addIcons(marked(markdown))
 
-  const titlePreview = textSlice(post.title, 32);
-  const date = new Date(post.date * 1000);
-  const dateString = getDateString(date);
-  const postImage = post?.image ?? 'https://via.placeholder.com/300x200.png?text=Image+Not+Found';
+  const titlePreview = textSlice(post.title, 32)
+  const date = new Date(post.date * 1000)
+  const dateString = getDateString(date)
+  const postImage = post?.image ?? 'https://via.placeholder.com/300x200.png?text=Image+Not+Found'
 
   return {
     ...post,
@@ -115,7 +116,7 @@ const getPostDataParsed = async (post) => {
     preview,
     html,
     titlePreview,
-  };
-};
+  }
+}
 
-module.exports = { getPostDataParsed };
+module.exports = { getPostDataParsed }

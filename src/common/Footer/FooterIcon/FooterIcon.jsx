@@ -1,4 +1,4 @@
-import { FooterIconLink } from "./FooterIcon.styles";
+import { FooterIconLink } from './FooterIcon.styles';
 
 export const FooterIcon = ({ Component, href, alt }) => {
   return (
@@ -6,4 +6,4 @@ export const FooterIcon = ({ Component, href, alt }) => {
       <Component color="#FFF" size="2rem" />
     </FooterIconLink>
   );
-}
+};

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const FooterIconLink = styled.a`
   opacity: 0.66;

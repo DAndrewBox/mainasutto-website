@@ -16,7 +16,7 @@ export const LoaderSquare = styled.div`
   width: 20vw;
   height: 20vw;
   background-color: var(--color-bg-primary);
-  animation: 0.66s ease-in-out ${({ $delay }) => .20 + $delay * 0.16}s slide;
+  animation: 0.66s ease-in-out ${({ $delay }) => 0.2 + $delay * 0.16}s slide;
   animation-fill-mode: forwards;
 
   @keyframes slide {

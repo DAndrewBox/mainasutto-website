@@ -2,7 +2,7 @@ import { LoaderSquare, LoaderWrapper } from './Loader.styles';
 
 export const Loader = ({ isLoading }) => {
   if (!isLoading) {
-    return <></>;
+    return null;
   }
 
   const isMobile = window.innerWidth <= 768;
@@ -14,10 +14,11 @@ export const Loader = ({ isLoading }) => {
     <LoaderWrapper>
       {[...Array(Math.ceil(squareCountWidth * squareCountHeight))].map((_, index) => (
         <LoaderSquare
-          key={`anim-${index}`}
-          $delay={Math.ceil(
-            ((index + 1) / squareCountWidth) * (isMobile ? 0.5 : 1) + 0.33 * (index % squareCountWidth)
-          )}
+          key={`anim-${
+            // biome-ignore lint/suspicious/noArrayIndexKey: We know what we're doing here
+            index
+          }`}
+          $delay={Math.ceil(((index + 1) / squareCountWidth) * (isMobile ? 0.5 : 1) + 0.33 * (index % squareCountWidth))}
         />
       ))}
     </LoaderWrapper>

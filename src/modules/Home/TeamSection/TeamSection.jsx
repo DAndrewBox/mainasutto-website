@@ -1,5 +1,8 @@
+import PicDrew from '@assets/images/team/team_drew.webp';
+import PicErik from '@assets/images/team/team_erik.webp';
 import { Section } from '@common';
 import { useTranslation } from '@utils/i18n';
+import { Trans } from 'react-i18next';
 import {
   TeamContainer,
   TeamIntroduction,
@@ -20,9 +23,6 @@ import {
   TeamThanksSubtitle,
   TeamThanksTitle,
 } from './TeamSection.styles';
-import PicErik from '@assets/images/team/team_erik.webp';
-import PicDrew from '@assets/images/team/team_drew.webp';
-import { Trans } from 'react-i18next';
 import { specialThanks } from './utils';
 
 export const TeamSection = () => {
@@ -58,8 +58,8 @@ export const TeamSection = () => {
         <Trans i18nKey="team_intro" components={{ bold: <strong />, br: <br /> }} />
       </TeamIntroduction>
       <TeamContainer>
-        {team.map((member, index) => (
-          <TeamMember key={`team-member-${index}`}>
+        {team.map((member) => (
+          <TeamMember key={`team-member-${member.nickname}`}>
             <TeamMemberImage src={member.image} alt={member.name} loading="lazy" />
             <TeamMemberName>{member.name}</TeamMemberName>
             <TeamMemberRole>{member.role}</TeamMemberRole>
@@ -73,8 +73,8 @@ export const TeamSection = () => {
         <TeamThanksTitle>{t('team_thanks_title')}</TeamThanksTitle>
         <TeamThanksSubtitle>{t('team_thanks_subtitle')}</TeamThanksSubtitle>
         <TeamThanksMemberContainer>
-          {specialThanks.map((thanks, index) => (
-            <TeamThanksMember key={`special-thanks-${index}`}>
+          {specialThanks.map((thanks) => (
+            <TeamThanksMember key={`special-thanks-${thanks.username}`}>
               <TeamThanksMemberImage src={thanks.image} alt={thanks.name} loading="lazy" />
               <TeamThanksMemberInfo>
                 <TeamThanksMemberName>

@@ -5,7 +5,7 @@ export const HeaderIconLinkAnimation = styled.span`
   opacity: 0;
   transition: all 0.2s ease-out;
   animation: fadeIn 1.16s ease-in-out forwards;
-  animation-delay: ${(props) => .50 + props?.$animationDelay / 2.5}s;
+  animation-delay: ${(props) => 0.5 + props?.$animationDelay / 2.5}s;
 
   @keyframes fadeIn {
     from {

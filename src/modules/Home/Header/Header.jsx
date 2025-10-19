@@ -1,21 +1,11 @@
 import HeaderVideoPoster from '@assets/images/headervideo_v3.webp';
 import MainasuttoLogo from '@assets/images/logo_v2.webp';
 import backgroundVideo from '@assets/videos/headervideo_v3.webm';
-import { CaretDown, CaretRight, Discord, Steam, Twitter, Youtube } from '@common/Icons';
 import { useTranslation } from '@utils/i18n';
 import { useState } from 'react';
+import { CaretDown, CaretRight, Discord, Steam, Twitter, Youtube } from '~/Icons';
 import i18n from '../../../public/i18n';
-import {
-  HeaderCTA,
-  HeaderContainer,
-  HeaderContent,
-  HeaderNavBar,
-  HeaderNavItem,
-  HeaderOverlay,
-  HeaderSocialsContainer,
-  NavLangMenu,
-  NavLangMenuItem,
-} from './Header.styles';
+import { HeaderContainer, HeaderContent, HeaderCTA, HeaderNavBar, HeaderNavItem, HeaderOverlay, HeaderSocialsContainer, NavLangMenu, NavLangMenuItem } from './Header.styles';
 import { HeaderIcon } from './HeaderIcon';
 
 export const Header = () => {
@@ -121,13 +111,7 @@ export const Header = () => {
         <img src={MainasuttoLogo} alt="Mainasutto Logo" />
         <HeaderSocialsContainer>
           {socials.map((social, index) => (
-            <HeaderIcon
-              key={index}
-              Component={social.iconSrc}
-              href={social.url}
-              alt={social.alt}
-              delay={1.16 + index}
-            />
+            <HeaderIcon key={`header-social-${social.alt}`} Component={social.iconSrc} href={social.url} alt={social.alt} delay={1.16 + index} />
           ))}
         </HeaderSocialsContainer>
         <HeaderCTA href="https://dandrewbox.itch.io/mainasutto-ina" alt={labelPlayDemo} target="_blank">
@@ -135,8 +119,8 @@ export const Header = () => {
         </HeaderCTA>
       </HeaderContent>
       <HeaderNavBar className={langMenuOpen ? 'active' : ''}>
-        {navItems.map((item, index) => (
-          <HeaderNavItem key={`nav-item-${index}`} href={item.url} onClick={item?.onClick || (() => { })}>
+        {navItems.map((item) => (
+          <HeaderNavItem key={`nav-item-${item.label}`} href={item.url} onClick={item?.onClick || (() => {})}>
             {item.label}
           </HeaderNavItem>
         ))}
@@ -148,8 +132,8 @@ export const Header = () => {
       </HeaderNavBar>
       {langMenuOpen && (
         <NavLangMenu>
-          {langMenuItems.map((item, index) => (
-            <NavLangMenuItem key={`lang-${index}`} onClick={item.onClick} className={item.isActive ? 'active' : ''}>
+          {langMenuItems.map((item) => (
+            <NavLangMenuItem key={`lang-${item.label}`} onClick={item.onClick} className={item.isActive ? 'active' : ''}>
               {item.label}
             </NavLangMenuItem>
           ))}

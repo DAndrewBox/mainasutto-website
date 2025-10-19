@@ -23,8 +23,8 @@ export const BlogNavbar = () => {
       <BlogNavbarContainer>
         <Link to={'/blog'}>Mainasutto Newsletter</Link>
         <BlogNavbarItemContainer>
-          {navItems.map((item, index) => (
-            <BlogNavbarItem key={`nav-${index}`} href={item.href} $currentPage={item?.currentPage ?? false}>
+          {navItems.map((item) => (
+            <BlogNavbarItem key={`nav-${item.label}`} href={item.href} $currentPage={item?.currentPage ?? false}>
               {item.label}
             </BlogNavbarItem>
           ))}

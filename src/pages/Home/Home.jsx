@@ -1,14 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Loader, Footer } from '@common';
-import {
-  FeaturesSection,
-  Header,
-  NewsletterSection,
-  TrailerSection,
-  GallerySection,
-  TeamSection,
-  GameMakerSection,
-} from '../../modules';
+import { FeaturesSection, Header, NewsletterSection, TrailerSection, GallerySection, TeamSection, GameMakerSection } from '../../modules';
 import { CommonPage } from '../Pages.styles';
 import i18n, { validateLanguage } from '../../public/i18n';
 

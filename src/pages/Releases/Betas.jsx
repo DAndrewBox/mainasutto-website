@@ -15,11 +15,7 @@ export const Beta = () => {
     <NoBackgroundPage>
       <BetaWrapper>
         <Loader isLoading={isLoading} />
-        <ReleasesTable
-          title={'Beta Prototypes'}
-          subtitle={'Recovered from history. Some may be lost in time.'}
-          releases={betaReleases}
-        />
+        <ReleasesTable title={'Beta Prototypes'} subtitle={'Recovered from history. Some may be lost in time.'} releases={betaReleases} />
         <Footer />
       </BetaWrapper>
     </NoBackgroundPage>

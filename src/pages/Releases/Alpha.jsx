@@ -15,11 +15,7 @@ export const Alpha = () => {
     <NoBackgroundPage>
       <AlphaWrapper>
         <Loader isLoading={isLoading} />
-        <ReleasesTable
-          title={'Alpha Prototypes'}
-          subtitle={'Recovered from history. Some may be lost in time.'}
-          releases={alphaReleases}
-        />
+        <ReleasesTable title={'Alpha Prototypes'} subtitle={'Recovered from history. Some may be lost in time.'} releases={alphaReleases} />
         <Footer />
       </AlphaWrapper>
     </NoBackgroundPage>
