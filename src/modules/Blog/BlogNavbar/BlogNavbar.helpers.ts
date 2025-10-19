@@ -6,16 +6,16 @@ interface NavItem {
 
 export const navItems: NavItem[] = [
   {
-    label: 'Home',
+    label: 'blog_nav_home',
     href: '/',
   },
   {
-    label: 'Blog',
+    label: 'blog_nav_blog',
     href: '/blog',
     currentPage: true,
   },
   {
-    label: 'Presskit',
+    label: 'blog_nav_presskit',
     href: 'https://www.indiedb.com/games/mainasutto-im-not-alone/presskit',
   },
 ];

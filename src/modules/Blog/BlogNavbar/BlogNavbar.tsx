@@ -1,8 +1,11 @@
+import { useTranslation } from '@src/utils/i18n';
 import { Link } from 'react-router-dom';
 import { navItems } from './BlogNavbar.helpers';
 import { BlogNavbarContainer, BlogNavbarItem, BlogNavbarItemContainer, BlogNavbarWrapper } from './BlogNavbar.styles';
 
 export const BlogNavbar = () => {
+  const { t } = useTranslation();
+
   return (
     <BlogNavbarWrapper>
       <BlogNavbarContainer>
@@ -10,7 +13,7 @@ export const BlogNavbar = () => {
         <BlogNavbarItemContainer>
           {navItems.map((item) => (
             <BlogNavbarItem key={`nav-${item.label}`} href={item.href} $currentPage={item?.currentPage ?? false}>
-              {item.label}
+              {t(item.label)}
             </BlogNavbarItem>
           ))}
         </BlogNavbarItemContainer>

@@ -1,6 +1,5 @@
 import Section from '@common/Section';
 import { useTranslation } from '@utils/i18n';
-import { Trans } from 'react-i18next';
 import { specialThanks, team } from './TeamSection.helpers';
 import {
   TeamContainer,
@@ -24,12 +23,12 @@ import {
 } from './TeamSection.styles';
 
 export const TeamSection = () => {
-  const { t } = useTranslation();
+  const { t, Trans } = useTranslation();
 
   return (
     <Section title={t('team_title')} $isOverlay>
       <TeamIntroduction>
-        <Trans i18nKey="team_intro" components={{ bold: <strong />, br: <br /> }} />
+        <Trans i18nKey="team_intro" />
       </TeamIntroduction>
       <TeamContainer>
         {team.map((member) => (

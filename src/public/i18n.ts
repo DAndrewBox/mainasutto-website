@@ -18,7 +18,14 @@ const resources = {
   },
 };
 
-export const validateLanguage = (language) => {
+/**
+ * Validates the provided language against the available resources.
+ * If the language is valid, it returns the language; otherwise, it returns the default language.
+ *
+ * @param language - The language to validate, which can be a string or null.
+ * @returns The validated language or the default language if the provided language is invalid.
+ */
+export const validateLanguage = (language: string | null) => {
   return Object.keys(resources).includes(language) ? language : i18n.language;
 };
 
@@ -27,7 +34,6 @@ i18n
   .use(initReactI18next)
   .init({
     resources,
-    // lng: "en",  // if you're using a language detector, do not define the lng option
 
     keySeparator: false, // we do not use keys in form messages.welcome
 

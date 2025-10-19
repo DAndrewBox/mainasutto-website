@@ -3,11 +3,12 @@ import MainasuttoLogo from '@assets/images/logo_v2.webp';
 import backgroundVideo from '@assets/videos/headervideo_v3.webm';
 import { CaretDown, CaretRight, Discord, Steam, Twitter, Youtube } from '@src/Icons';
 import { useTranslation } from '@utils/i18n';
-import { useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import i18n from '../../../public/i18n';
 import { HeaderContainer, HeaderContent, HeaderCTA, HeaderNavBar, HeaderNavItem, HeaderOverlay, HeaderSocialsContainer, NavLangMenu, NavLangMenuItem } from './Header.styles';
 import HeaderIcon from './HeaderIcon/HeaderIcon';
 
+const baseURL = process.env.NODE_ENV === 'development' ? 'http://localhost:8080' : 'https://mainasutto.com';
 const socials = [
   {
     iconSrc: Steam,
@@ -16,12 +17,12 @@ const socials = [
   },
   {
     iconSrc: Discord,
-    url: 'https://mainasutto.com/discord',
+    url: `${baseURL}/discord`,
     alt: 'Discord',
   },
   {
     iconSrc: Twitter,
-    url: 'https://twitter.com/mainasutto',
+    url: `${baseURL}/twitter`,
     alt: 'Twitter',
   },
   {
@@ -33,7 +34,6 @@ const socials = [
 
 export const Header = () => {
   const [langMenuOpen, setLangMenuOpen] = useState(false);
-
   /*
   const [yOffset, setYOffset] = useState(0);
   // Parallax effect for header video
@@ -49,6 +49,16 @@ export const Header = () => {
 
   const { t } = useTranslation();
   const labelPlayDemo = t('header_cta_playDemo');
+
+  /**
+   * Handles the change of the application language. It saves the selected language in localStorage.
+   * @param lang - The language code to set the application language to.
+   */
+  const handleChangeLanguage = useCallback((lang: string) => {
+    i18n.changeLanguage(lang);
+    localStorage.setItem('i18nextLng', lang);
+    setLangMenuOpen(false);
+  }, []);
 
   const navItems = useMemo(
     () => [
@@ -81,29 +91,26 @@ export const Header = () => {
       {
         label: t('header_nav_langEn'),
         onClick: () => {
-          i18n.changeLanguage('en');
-          setLangMenuOpen(false);
+          handleChangeLanguage('en');
         },
         isActive: i18n.language === 'en',
       },
       {
         label: t('header_nav_langEs'),
         onClick: () => {
-          i18n.changeLanguage('es');
-          setLangMenuOpen(false);
+          handleChangeLanguage('es');
         },
         isActive: i18n.language === 'es',
       },
       {
         label: t('header_nav_langJp'),
         onClick: () => {
-          i18n.changeLanguage('jp');
-          setLangMenuOpen(false);
+          handleChangeLanguage('jp');
         },
         isActive: i18n.language === 'jp',
       },
     ],
-    [t],
+    [t, handleChangeLanguage],
   );
 
   return (

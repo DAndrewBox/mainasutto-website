@@ -1,5 +1,5 @@
 import LoadingImage from '@assets/images/loader.webp';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from '@src/utils/i18n';
 import { BlogLoaderContainer, BlogLoaderContentContainer, BlogLoaderImage, BlogLoaderText, BlogLoaderUrl, BlogLoaderWrapper } from './BlogLoader.styles';
 
 export const BlogLoader = ({ isLoading, caption = 'loader_text_loading', redirectUrl = null }) => {

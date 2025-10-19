@@ -1,8 +1,9 @@
 import { Discord, Steam, Twitter, Youtube } from '@src/Icons';
 import { useTranslation } from '@utils/i18n';
-import { Trans } from 'react-i18next';
 import { FooterContainer, FooterIconsContainer } from './Footer.styles';
 import FooterIcon from './FooterIcon';
+
+const baseURL = process.env.NODE_ENV === 'development' ? 'http://localhost:8080' : 'https://mainasutto.com';
 
 const footerIcons = [
   {
@@ -14,13 +15,13 @@ const footerIcons = [
   {
     id: 'discord',
     Component: Discord,
-    href: 'https://mainasutto.com/discord',
+    href: `${baseURL}/discord`,
     alt: 'Discord',
   },
   {
     id: 'twitter',
     Component: Twitter,
-    href: 'https://mainasutto.com/twitter',
+    href: `${baseURL}/twitter`,
     alt: 'Twitter / X',
   },
   {
@@ -32,7 +33,7 @@ const footerIcons = [
 ];
 
 export const Footer = () => {
-  const { t } = useTranslation();
+  const { t, Trans } = useTranslation();
 
   return (
     <FooterContainer>
@@ -42,7 +43,7 @@ export const Footer = () => {
         ))}
       </FooterIconsContainer>
       <span>
-        <Trans i18nKey={'footer_line1'} components={{ bold: <strong /> }} />
+        <Trans i18nKey="footer_line1" />
       </span>
       <span>{t('footer_line2')}</span>
     </FooterContainer>

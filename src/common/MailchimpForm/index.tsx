@@ -12,6 +12,7 @@ export const MailchimpForm = ({ width }: MailchimpFormProps) => {
   const navigate = useNavigate();
   const { t } = useTranslation();
   const [isSubscribed, setIsSubscribed] = useState(false);
+  const [isSendingRequest, setIsSendingRequest] = useState(false);
 
   const onSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -41,17 +42,22 @@ export const MailchimpForm = ({ width }: MailchimpFormProps) => {
       return;
     }
 
-    await fetch(`${url}&EMAIL=${email}&NICKNAME=${nickname}`, { mode: 'no-cors', method: 'POST' })
+    setIsSendingRequest(true);
+    await fetch(`${url}&EMAIL=${email}&MMERGE6=${nickname}`, { mode: 'no-cors', method: 'POST' })
       .then(() => {
         setIsSubscribed(true);
         alert('You have been subscribed!');
       })
       .catch(() => {
         alert('An error occurred. Please try again later.');
+      })
+      .finally(() => {
+        setIsSendingRequest(false);
       });
   };
 
   const labelSubscribe = isSubscribed ? t('newsletter_success') : t('newsletter_subscribe');
+  const labelSending = t('newsletter_sending');
 
   return (
     <MailchimpFormContainer onSubmit={onSubmit} $width={width}>
@@ -59,13 +65,13 @@ export const MailchimpForm = ({ width }: MailchimpFormProps) => {
       <MailchimpInputContainer>
         <div>
           <label htmlFor="mce-EMAIL">
-            Email <span>*</span> <span>(required)</span>
+            {t('newsletter_email')} <span>*</span> <span>{t('ui_required')}</span>
           </label>
           <input type="email" name="EMAIL" id="mce-EMAIL" required disabled={isSubscribed} />
         </div>
 
         <div>
-          <label htmlFor="mce-NICKNAME">Nickname</label>
+          <label htmlFor="mce-NICKNAME">{t('newsletter_nickname')}</label>
           <input type="text" name="NICKNAME" id="mce-NICKNAME" disabled={isSubscribed} />
         </div>
 
@@ -76,8 +82,8 @@ export const MailchimpForm = ({ width }: MailchimpFormProps) => {
       </MailchimpInputContainer>
 
       <MailchimpButtonContainer>
-        <button type="submit" disabled={isSubscribed}>
-          {labelSubscribe}
+        <button type="submit" disabled={isSubscribed || isSendingRequest}>
+          {isSendingRequest ? labelSending : labelSubscribe}
         </button>
       </MailchimpButtonContainer>
     </MailchimpFormContainer>
