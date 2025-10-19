@@ -1,4 +1,46 @@
-export const specialThanks = [
+import PicDrew from '@assets/images/team/team_drew.webp';
+import PicErik from '@assets/images/team/team_erik.webp';
+
+interface TeamMember {
+  name: string;
+  nickname: string;
+  role: string;
+  image: string;
+  description: string;
+}
+
+interface SpecialThanksMember {
+  name: string;
+  username?: string;
+  role: string;
+  image: string;
+}
+
+export const team: TeamMember[] = [
+  {
+    name: 'Francisco Castillo',
+    nickname: 'Drëw',
+    role: 'team_member_drew_role',
+    image: PicDrew,
+    description: 'team_member_drew_desc',
+  },
+  {
+    name: 'Erik Strålberg',
+    nickname: '456c',
+    role: 'team_member_erik_role',
+    image: PicErik,
+    description: 'team_member_erik_desc',
+  },
+  {
+    name: 'Felipe Maldonado',
+    nickname: 'Maldo',
+    role: 'team_member_maldo_role',
+    image: 'https://i.imgur.com/OrC7xLV.png',
+    description: 'team_member_maldo_desc',
+  },
+];
+
+export const specialThanks: SpecialThanksMember[] = [
   {
     name: 'Elisha Ramos',
     username: 'Pixelisha',
@@ -67,6 +109,7 @@ export const specialThanks = [
     name: 'Xor',
     username: 'XorDev',
     role: 'Shaders & VFX Help',
-    image: 'https://substackcdn.com/image/fetch/w_96,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fedf69737-7d50-4dc8-9cce-aad9b9019215_512x512.png',
+    image:
+      'https://substackcdn.com/image/fetch/w_96,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fedf69737-7d50-4dc8-9cce-aad9b9019215_512x512.png',
   },
 ];

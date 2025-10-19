@@ -24,7 +24,7 @@ export const BlogContainer = styled.div`
   }
 `;
 
-export const BlogPostsNavigationContainer = styled.div<{ width: string }>`
+export const BlogPostsNavigationContainer = styled.div<{ width?: string }>`
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;

@@ -1,5 +1,5 @@
+import { NotFoundContent, NotFoundDivider, NotFoundSubtext, NotFoundText, NotFoundTitle, NotFoundWrapper } from '@src/modules/NotFound/NotFound.styles';
 import { useEffect, useState } from 'react';
-import { NotFoundContent, NotFoundDivider, NotFoundSubtext, NotFoundText, NotFoundTitle, NotFoundWrapper } from '../../modules/NotFound';
 import { Redirect } from '../Redirect/Redirect';
 
 export const NotFound = () => {

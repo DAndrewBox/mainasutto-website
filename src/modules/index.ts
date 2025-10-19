@@ -1,3 +1,3 @@
 export * from './Blog';
 export * from './Home';
-export * from './NotFound';
+export * from './NotFound/NotFound.styles';

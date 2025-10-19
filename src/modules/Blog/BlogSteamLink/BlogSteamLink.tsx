@@ -1,7 +1,11 @@
 import { useTranslation } from '@utils/i18n';
 import { BlogSteamLinkUrl, BlogSteamLinkWrapper } from './BlogSteamLink.styles';
 
-export const BlogSteamLink = ({ url }) => {
+interface BlogSteamLinkProps {
+  url: string;
+}
+
+export const BlogSteamLink = ({ url }: BlogSteamLinkProps) => {
   const { t } = useTranslation();
 
   return (
@@ -10,3 +14,5 @@ export const BlogSteamLink = ({ url }) => {
     </BlogSteamLinkWrapper>
   );
 };
+
+export default BlogSteamLink;

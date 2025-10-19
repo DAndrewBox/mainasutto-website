@@ -41,7 +41,7 @@ export const HeaderContainer = styled.header`
   }
 `;
 
-export const HeaderOverlay = styled.div`
+export const HeaderOverlay = styled.div<{ hueRotate?: string | number }>`
   position: absolute;
   top: 0;
   left: 0;

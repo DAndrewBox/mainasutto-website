@@ -1,5 +1,5 @@
+import { chipTypes } from './Chip.helpers';
 import { ChipIcon, ChipText, ChipTextIcon, ChipWrapper } from './Chip.styles';
-import { chipTypes } from './Chip.utils';
 
 interface ChipProps {
   type: keyof typeof chipTypes;

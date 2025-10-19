@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const BlogLoaderWrapper = styled.div`
+export const BlogLoaderWrapper = styled.div<{ $isLoading: boolean }>`
   position: fixed;
   top: 0;
   left: 0;

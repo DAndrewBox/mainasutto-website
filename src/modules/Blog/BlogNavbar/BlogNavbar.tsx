@@ -1,23 +1,8 @@
 import { Link } from 'react-router-dom';
+import { navItems } from './BlogNavbar.helpers';
 import { BlogNavbarContainer, BlogNavbarItem, BlogNavbarItemContainer, BlogNavbarWrapper } from './BlogNavbar.styles';
 
 export const BlogNavbar = () => {
-  const navItems = [
-    {
-      label: 'Home',
-      href: '/',
-    },
-    {
-      label: 'Blog',
-      href: '/blog',
-      currentPage: true,
-    },
-    {
-      label: 'Presskit',
-      href: 'https://www.indiedb.com/games/mainasutto-im-not-alone/presskit',
-    },
-  ];
-
   return (
     <BlogNavbarWrapper>
       <BlogNavbarContainer>
@@ -33,3 +18,5 @@ export const BlogNavbar = () => {
     </BlogNavbarWrapper>
   );
 };
+
+export default BlogNavbar;

@@ -1,12 +1,12 @@
 import Section from '@common/Section';
 import { useTranslation } from '@utils/i18n';
 import { Platform, PlatformsContainer } from './PlatformSection.styles';
-import { platforms } from './utils';
+import { type Platform as PlatformType, platforms } from './PlatformsSection.helpers';
 
 export const PlatformsSection = () => {
   const { t } = useTranslation();
 
-  const handlePlatformClick = (platform) => {
+  const handlePlatformClick = (platform: PlatformType) => {
     if (platform.href) {
       window.location.href = platform.href;
     }
@@ -16,7 +16,7 @@ export const PlatformsSection = () => {
     <Section>
       <PlatformsContainer>
         {platforms.map((platform) => (
-          <Platform key={`platform-${platform.name}`} onClick={() => handlePlatformClick(platform)} $active={platform.href !== ''}>
+          <Platform key={`platform-${platform.name}`} onClick={() => handlePlatformClick(platform)} $active={!!platform?.href}>
             <img src={platform.icon} alt={platform.name} />
             <span>{t(platform.status)}</span>
           </Platform>
@@ -25,3 +25,5 @@ export const PlatformsSection = () => {
     </Section>
   );
 };
+
+export default PlatformsSection;

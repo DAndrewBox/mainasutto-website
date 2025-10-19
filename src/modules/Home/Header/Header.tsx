@@ -3,15 +3,39 @@ import MainasuttoLogo from '@assets/images/logo_v2.webp';
 import backgroundVideo from '@assets/videos/headervideo_v3.webm';
 import { CaretDown, CaretRight, Discord, Steam, Twitter, Youtube } from '@src/Icons';
 import { useTranslation } from '@utils/i18n';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import i18n from '../../../public/i18n';
 import { HeaderContainer, HeaderContent, HeaderCTA, HeaderNavBar, HeaderNavItem, HeaderOverlay, HeaderSocialsContainer, NavLangMenu, NavLangMenuItem } from './Header.styles';
-import { HeaderIcon } from './HeaderIcon';
+import HeaderIcon from './HeaderIcon/HeaderIcon';
+
+const socials = [
+  {
+    iconSrc: Steam,
+    url: 'https://store.steampowered.com/app/2580170/',
+    alt: 'Steam Wishlist',
+  },
+  {
+    iconSrc: Discord,
+    url: 'https://mainasutto.com/discord',
+    alt: 'Discord',
+  },
+  {
+    iconSrc: Twitter,
+    url: 'https://twitter.com/mainasutto',
+    alt: 'Twitter',
+  },
+  {
+    iconSrc: Youtube,
+    url: 'https://www.youtube.com/c/DAndrëwBox',
+    alt: 'Youtube',
+  },
+];
 
 export const Header = () => {
   const [langMenuOpen, setLangMenuOpen] = useState(false);
 
-  /* const [yOffset, setYOffset] = useState(0);
+  /*
+  const [yOffset, setYOffset] = useState(0);
   // Parallax effect for header video
   // -- This effect is disabled for now because it's causing performance issues
   window.onscroll = () => {
@@ -26,78 +50,61 @@ export const Header = () => {
   const { t } = useTranslation();
   const labelPlayDemo = t('header_cta_playDemo');
 
-  const socials = [
-    {
-      iconSrc: Steam,
-      url: 'https://store.steampowered.com/app/2580170/',
-      alt: 'Steam Wishlist',
-    },
-    {
-      iconSrc: Discord,
-      url: 'https://mainasutto.com/discord',
-      alt: 'Discord',
-    },
-    {
-      iconSrc: Twitter,
-      url: 'https://twitter.com/mainasutto',
-      alt: 'Twitter',
-    },
-    {
-      iconSrc: Youtube,
-      url: 'https://www.youtube.com/c/DAndrëwBox',
-      alt: 'Youtube',
-    },
-  ];
+  const navItems = useMemo(
+    () => [
+      {
+        label: t('header_nav_itemBlog'),
+        url: '/blog',
+      },
+      {
+        label: t('header_nav_itemTeam'),
+        url: '#team',
+        onClick: () => {
+          // Scroll to Team Section without using IDs
+          const teamSection = document.getElementsByTagName('section')[4];
+          window.scrollTo({
+            top: teamSection.offsetTop,
+            behavior: 'smooth',
+          });
+        },
+      },
+      {
+        label: t('header_nav_itemPresskit'),
+        url: 'https://www.indiedb.com/games/mainasutto-im-not-alone/presskit',
+      },
+    ],
+    [t],
+  );
 
-  const navItems = [
-    {
-      label: t('header_nav_itemBlog'),
-      url: '/blog',
-    },
-    {
-      label: t('header_nav_itemTeam'),
-      url: '#team',
-      onClick: () => {
-        // Scroll to Team Section without using IDs
-        const teamSection = document.getElementsByTagName('section')[4];
-        window.scrollTo({
-          top: teamSection.offsetTop,
-          behavior: 'smooth',
-        });
+  const langMenuItems = useMemo(
+    () => [
+      {
+        label: t('header_nav_langEn'),
+        onClick: () => {
+          i18n.changeLanguage('en');
+          setLangMenuOpen(false);
+        },
+        isActive: i18n.language === 'en',
       },
-    },
-    {
-      label: t('header_nav_itemPresskit'),
-      url: 'https://www.indiedb.com/games/mainasutto-im-not-alone/presskit',
-    },
-  ];
-
-  const langMenuItems = [
-    {
-      label: t('header_nav_langEn'),
-      onClick: () => {
-        i18n.changeLanguage('en');
-        setLangMenuOpen(false);
+      {
+        label: t('header_nav_langEs'),
+        onClick: () => {
+          i18n.changeLanguage('es');
+          setLangMenuOpen(false);
+        },
+        isActive: i18n.language === 'es',
       },
-      isActive: i18n.language === 'en',
-    },
-    {
-      label: t('header_nav_langEs'),
-      onClick: () => {
-        i18n.changeLanguage('es');
-        setLangMenuOpen(false);
+      {
+        label: t('header_nav_langJp'),
+        onClick: () => {
+          i18n.changeLanguage('jp');
+          setLangMenuOpen(false);
+        },
+        isActive: i18n.language === 'jp',
       },
-      isActive: i18n.language === 'es',
-    },
-    {
-      label: t('header_nav_langJp'),
-      onClick: () => {
-        i18n.changeLanguage('jp');
-        setLangMenuOpen(false);
-      },
-      isActive: i18n.language === 'jp',
-    },
-  ];
+    ],
+    [t],
+  );
 
   return (
     <HeaderContainer>
@@ -114,7 +121,7 @@ export const Header = () => {
             <HeaderIcon key={`header-social-${social.alt}`} Component={social.iconSrc} href={social.url} alt={social.alt} delay={1.16 + index} />
           ))}
         </HeaderSocialsContainer>
-        <HeaderCTA href="https://dandrewbox.itch.io/mainasutto-ina" alt={labelPlayDemo} target="_blank">
+        <HeaderCTA href="https://dandrewbox.itch.io/mainasutto-ina" target="_blank">
           {`[ ${labelPlayDemo} ]`}
         </HeaderCTA>
       </HeaderContent>
@@ -142,3 +149,5 @@ export const Header = () => {
     </HeaderContainer>
   );
 };
+
+export default Header;

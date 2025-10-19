@@ -224,7 +224,7 @@ export const BlogPostContentText = styled.div`
   }
 
   h2 {
-    text-spacing: 0.125rem;
+    letter-spacing: 0.125rem;
     margin-bottom: 0.5rem;
   }
 

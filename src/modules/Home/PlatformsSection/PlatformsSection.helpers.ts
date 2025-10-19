@@ -3,7 +3,14 @@ import Steam from '@assets/images/platform-steam.webp';
 import NSwitch from '@assets/images/platform-switch.webp';
 import Xbox from '@assets/images/platform-xbox.webp';
 
-export const platforms = [
+export interface Platform {
+  name: string;
+  icon: string;
+  status: string;
+  href?: string;
+}
+
+export const platforms: Platform[] = [
   {
     name: 'Steam',
     icon: Steam,
@@ -14,18 +21,15 @@ export const platforms = [
     name: 'NSwitch',
     icon: NSwitch,
     status: 'platforms_status_comingSoon',
-    href: '',
   },
   {
     name: 'PS',
     icon: PS,
     status: 'platforms_status_comingSoon',
-    href: '',
   },
   {
     name: 'Xbox',
     icon: Xbox,
     status: 'platforms_status_comingSoon',
-    href: '',
   },
 ];

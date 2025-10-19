@@ -25,7 +25,7 @@ export const PlatformsContainer = styled.div`
   }
 `;
 
-export const Platform = styled.a`
+export const Platform = styled.a<{ $active: boolean }>`
   display: flex;
   justify-content: center;
   align-items: center;

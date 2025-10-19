@@ -1,8 +1,23 @@
 import Chip from '@src/common/Chip';
+import type { BlogPost as PostType } from '@src/store/BlogProvider';
 import { BlogSteamLink } from '../BlogSteamLink/BlogSteamLink';
-import { BlogPostAuthor, BlogPostContent, BlogPostContentText, BlogPostDate, BlogPostImage, BlogPostSubtitle, BlogPostTags, BlogPostTitle, BlogPostWrapper } from './BlogPost.styles';
+import {
+  BlogPostAuthor,
+  BlogPostContent,
+  BlogPostContentText,
+  BlogPostDate,
+  BlogPostImage,
+  BlogPostSubtitle,
+  BlogPostTags,
+  BlogPostTitle,
+  BlogPostWrapper,
+} from './BlogPost.styles';
 
-export const BlogPost = ({ post }) => {
+interface BlogPostProps {
+  post: PostType | null;
+}
+
+export const BlogPost = ({ post }: BlogPostProps) => {
   const title = post?.title?.split('-')[0] ?? '';
   const subtitle = post?.title?.split('-')[1] ?? '';
   const date = post?.date ?? '';
@@ -42,3 +57,5 @@ export const BlogPost = ({ post }) => {
     </BlogPostWrapper>
   );
 };
+
+export default BlogPost;

@@ -1,19 +1,21 @@
+import type { chipTypes } from '@src/common/Chip/Chip.helpers';
 import { createContext } from 'react';
 import { legacy_createStore as createStore } from 'redux';
 
-interface BlogPost {
+export interface BlogPost {
   title: string;
   author?: string;
   date: number | string;
   image: string;
   filepath?: string;
-  tags?: string[];
-  steamLink?: string;
+  tags?: (keyof typeof chipTypes)[];
+  steamlink?: string;
   id?: string;
+  html?: string;
   content?: string;
 }
 
-interface BlogState {
+export interface BlogState {
   posts: BlogPost[];
   currentPost: BlogPost;
 }

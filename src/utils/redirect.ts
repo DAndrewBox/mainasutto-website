@@ -3,9 +3,10 @@
  * If the URL starts with 'http', it will be opened in a new tab/window.
  * Otherwise, it will be appended to the base URL and the current page will be redirected to the new URL.
  *
- * @param {string} to - The URL to redirect to.
+ * @param to - The URL to redirect to.
+ * @param newWindow - Whether to open the URL in a new window (default is true).
  */
-export const redirectTo = (to, newWindow = true) => {
+export const redirectTo = (to: string, newWindow = true) => {
   const baseUrl = window.location.origin;
 
   if (to.startsWith('http')) {

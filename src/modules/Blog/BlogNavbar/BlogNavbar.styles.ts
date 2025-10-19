@@ -69,7 +69,7 @@ export const BlogNavbarItemContainer = styled.div`
   }
 `;
 
-export const BlogNavbarItem = styled.a`
+export const BlogNavbarItem = styled.a<{ $currentPage: boolean }>`
   color: var(--color-text-secondary);
   text-decoration: none;
   transition: color 0.16s;

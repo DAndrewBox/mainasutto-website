@@ -136,7 +136,7 @@ export const BlogPreviewContentContainer = styled.div`
   }
 `;
 
-export const BlogPreviewImage = styled.div`
+export const BlogPreviewImage = styled.div<{ src: string }>`
   flex: 3;
   background-image: url(${(props) => props.src});
   background-size: cover;

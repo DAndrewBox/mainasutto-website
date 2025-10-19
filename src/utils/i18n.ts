@@ -5,6 +5,6 @@ export const useTranslation = () => {
   const { t: originalTranslator } = useTranslationOriginal();
 
   return {
-    t: (key) => originalTranslator(key, { output: 'string', locale: i18n.language }),
+    t: (key: string) => originalTranslator(key, { output: 'string', locale: i18n.language }),
   };
 };

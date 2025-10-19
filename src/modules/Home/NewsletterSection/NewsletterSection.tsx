@@ -14,3 +14,5 @@ export const NewsletterSection = () => {
     </Section>
   );
 };
+
+export default NewsletterSection;

@@ -1,9 +1,14 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { HeaderIconLink, HeaderIconLinkAnimation } from './HeaderIcon.styles';
+
+const iconColors = {
+  default: '#DDD',
+  hover: '#FFF',
+};
 
 export const HeaderIcon = ({ Component, alt, href, delay }) => {
   const [animationFinished, setAnimationFinished] = useState(false);
-  const [iconColor, setIconColor] = useState('#DDD');
+  const [iconColor, setIconColor] = useState(iconColors.default);
   const iconComponent = <Component color={iconColor} size="3.5rem" />;
 
   const handleOnClick = () => {
@@ -11,16 +16,24 @@ export const HeaderIcon = ({ Component, alt, href, delay }) => {
   };
 
   // Set the animation to finished after the delay
-  setTimeout(
-    () => {
-      setAnimationFinished(true);
-    },
-    (delay * 1000) / 2.5 + 1560,
-  );
+  useEffect(() => {
+    setTimeout(
+      () => {
+        setAnimationFinished(true);
+      },
+      (delay * 1000) / 2.5 + 1560,
+    );
+  }, [delay]);
 
   if (animationFinished) {
     return (
-      <HeaderIconLink onClick={() => handleOnClick(href)} $animationDelay={delay} aria-label={alt} onMouseEnter={() => setIconColor('#FFF')} onMouseLeave={() => setIconColor('#DDD')}>
+      <HeaderIconLink
+        onClick={handleOnClick}
+        $animationDelay={delay}
+        aria-label={alt}
+        onMouseEnter={() => setIconColor(iconColors.hover)}
+        onMouseLeave={() => setIconColor(iconColors.default)}
+      >
         {iconComponent}
       </HeaderIconLink>
     );
@@ -32,3 +45,5 @@ export const HeaderIcon = ({ Component, alt, href, delay }) => {
     </HeaderIconLinkAnimation>
   );
 };
+
+export default HeaderIcon;

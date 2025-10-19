@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const HeaderIconLinkAnimation = styled.span`
+export const HeaderIconLinkAnimation = styled.span<{ $animationDelay: number }>`
   z-index: 3;
   opacity: 0;
   transition: all 0.2s ease-out;
