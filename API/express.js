@@ -1,6 +1,7 @@
 const express = require('express')
 const path = require('path')
 const fs = require('fs')
+const fetch = require('node-fetch');
 require('dotenv').config()
 const { getPostDataParsed } = require('./utils')
 
@@ -97,5 +98,53 @@ app.get(baseURL + '/releases/:path/:file', async (req, res) => {
     res.status(500).send({ error: e.message, data: null })
   }
 })
+
+app.get(baseURL + '/proxy-image', async (req, res) => {
+  const { url } = req.query;
+
+  if (!url) {
+    return res.status(400).send({ error: 'URL parameter is required' });
+  }
+
+  // Optional: Add security by allowing only specific domains
+  const allowedDomains = ['forums.tigsource.com', 'cdn.discordapp.com'];
+  try {
+    const urlObj = new URL(url);
+    if (!allowedDomains.includes(urlObj.hostname)) {
+      return res.status(403).send({ error: 'Domain not allowed' });
+    }
+  } catch (e) {
+    return res.status(400).send({ error: 'Invalid URL' });
+  }
+
+  try {
+    const response = await fetch(url, {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
+      },
+    });
+
+    if (!response.ok) {
+      return res.status(response.status).send({ error: 'Failed to fetch image' });
+    }
+
+    // Get the image data as a buffer
+    const imageBuffer = await response.arrayBuffer();
+
+    // Get content type from the original response
+    const contentType = response.headers.get('content-type') || 'image/gif';
+
+    // Set proper headers
+    res.setHeader('Content-Type', contentType);
+    res.setHeader('Cache-Control', 'public, max-age=86400'); // Cache for 24 hours
+    res.setHeader('Access-Control-Allow-Origin', '*');
+
+    // Send the image
+    res.send(Buffer.from(imageBuffer));
+  } catch (error) {
+    console.error('Proxy image error:', error);
+    res.status(500).send({ error: 'Error fetching image' });
+  }
+});
 
 module.exports = { app, port }

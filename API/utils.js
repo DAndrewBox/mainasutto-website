@@ -2,6 +2,28 @@ const { marked } = require('marked')
 const path = require('path')
 const fs = require('fs')
 
+const iconsMap = {
+  ':shrug:': '617372581959565326',
+  ':smiley:': '617372581972148244',
+  ':giggle:': '617372582102171666',
+  ':coffee:': '617372581598724194',
+  ':wink:': '617372581812764673',
+  ':gentleman:': '617372581703712769',
+  ':sad:': '617372582013829124',
+  ':hf_angry:': '795851343867674674',
+  ':hf_confused:': '795851343956279316',
+  ':hf_happy:': '795851343548907542',
+  ':hf_sad:': '1103507246593355837',
+  ':hf_surprised:': '795851343830188072',
+  ':hf_thinking:': '1143686589516632164',
+  ':hf_sweat:': '1103508919642488842',
+  ':hmm:': '795851344040820826',
+  ':wb_yay:': '795851343809871903',
+  ':wb_sus:': '795851343956803615',
+  ':wb_nay:': '795851343595438132',
+  ':yay:': '499036186346520587',
+}
+
 /**
  * Fixes the month value by adding a leading zero if it is less than 10.
  *
@@ -38,34 +60,13 @@ const getDateString = (date) => {
  * @returns {string} The modified HTML content with replaced strings.
  */
 const addIcons = (html) => {
-  const icons = {
-    ':shrug:': 'https://forums.tigsource.com/Smileys/derek/shrug.gif',
-    ':smiley:': 'https://forums.tigsource.com/Smileys/derek/smiley.gif',
-    ':giggle:': 'https://forums.tigsource.com/Smileys/derek/giggle.gif',
-    ':coffee:': 'https://forums.tigsource.com/Smileys/derek/coffee-toast.gif',
-    ':wink:': 'https://forums.tigsource.com/Smileys/derek/wink.gif',
-    ':gentleman:': 'https://forums.tigsource.com/Smileys/derek/gentleman.gif',
-    ':sad:': 'https://forums.tigsource.com/Smileys/derek/sad.gif',
-    ':hf_angry:': 'https://cdn.discordapp.com/emojis/795851343867674674.webp',
-    ':hf_confused:': 'https://cdn.discordapp.com/emojis/795851343956279316.webp',
-    ':hf_happy:': 'https://cdn.discordapp.com/emojis/795851343548907542.webp',
-    ':hf_sad:': 'https://cdn.discordapp.com/emojis/1103507246593355837.webp',
-    ':hf_surprised:': 'https://cdn.discordapp.com/emojis/795851343830188072.webp',
-    ':hf_thinking:': 'https://cdn.discordapp.com/emojis/1143686589516632164.webp',
-    ':hf_sweat:': 'https://cdn.discordapp.com/emojis/1103508919642488842.webp',
-    ':hmm:': 'https://cdn.discordapp.com/emojis/795851344040820826.webp',
-    ':wb_yay:': 'https://cdn.discordapp.com/emojis/795851343809871903.webp',
-    ':wb_sus:': 'https://cdn.discordapp.com/emojis/795851343956803615.webp',
-    ':wb_nay:': 'https://cdn.discordapp.com/emojis/795851343595438132.webp',
-    ':yay:': 'https://cdn.discordapp.com/emojis/499036186346520587.webp',
-  }
-
-  const keys = Object.keys(icons)
+  const keys = Object.keys(iconsMap)
   const regex = new RegExp(keys.join('|'), 'g')
+
   let newHtml = html.replace(
     regex,
     (match) =>
-      `<img src="${icons[match]}?size=16" alt="${match}" align="center" valign="middle" vspace="5" hspace="5" />`,
+      `<img src="https://cdn.discordapp.com/emojis/${iconsMap[match]}.webp?size=16&animated=true" alt="${match}" crossOrigin="anonymous" align="center" valign="middle" vspace="5" hspace="5" />`,
   )
 
   return newHtml
@@ -105,7 +106,7 @@ const getPostDataParsed = async (post) => {
   const titlePreview = textSlice(post.title, 32)
   const date = new Date(post.date * 1000)
   const dateString = getDateString(date)
-  const postImage = post?.image ?? 'https://via.placeholder.com/300x200.png?text=Image+Not+Found'
+  const postImage = post?.image ?? 'https://placehold.co/600x400/0e0e30/FFFFFF?text=Image+Not+Found&font=PT Sans'
 
   return {
     ...post,

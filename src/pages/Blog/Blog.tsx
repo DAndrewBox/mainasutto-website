@@ -57,7 +57,7 @@ export const Blog = () => {
     }
   };
 
-  // biome-ignore lint/correctness/useExhaustiveDependencies: Only on mount
+  // biome-ignore lint/correctness/useExhaustiveDependencies: We only want to run this effect on initial load
   useEffect(() => {
     const actualPage = Number(urlParams.get('page')) ?? 0;
     const postsCached = context.getState().posts;
@@ -71,15 +71,14 @@ export const Blog = () => {
     }
 
     handleNewPage(actualPage);
-  }, []);
+  }, [context.getState, urlParams.get]);
 
-  // biome-ignore lint/correctness/useExhaustiveDependencies: Only when currentPage changes
   useEffect(() => {
     urlParams.set('page', currentPage.toString());
     window.scrollTo({ top: 0, behavior: 'smooth' });
     const newURL = `${window.location.protocol}//${window.location.host}${window.location.pathname}?page=${currentPage}`;
     window.history.pushState({ path: newURL }, '', newURL);
-  }, [currentPage]);
+  }, [currentPage, urlParams.set]);
 
   setTimeout(() => {
     setIsLoading(false);

@@ -35,5 +35,5 @@ export default defineConfig({
     },
   },
   appType: 'spa',
-  base: './',
+  base: '/',
 });
